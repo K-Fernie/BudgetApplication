@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="758.0" prefWidth="903.0" style="-fx-background-color: #062726;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.budgetapplication.controller.BudgetOverview">
+   <children>
+      <AnchorPane layoutX="9.0" maxWidth="-Infinity" prefHeight="758.0" prefWidth="245.0" style="-fx-background-color: #01200F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox layoutY="146.0" prefHeight="609.0" prefWidth="254.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="146.0">
+               <children>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#onClickTransactionPage" prefHeight="57.0" prefWidth="265.0" styleClass="button1" stylesheets="@../../../css/fullpackstyling.css" text="Transaction Overview" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../com.budgetapplication.images/transaction-overview.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#onClickEnterExpenditure" prefHeight="57.0" prefWidth="294.0" styleClass="button1" stylesheets="@../../../css/fullpackstyling.css" text="Enter Expenditure" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../com.budgetapplication.images/enter-expenditure.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#onClickEnterIncome" prefHeight="57.0" prefWidth="286.0" styleClass="button1" stylesheets="@../../../css/fullpackstyling.css" text="Enter Income" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../com.budgetapplication.images/enter-income.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#onClickSetAllocations" prefHeight="57.0" prefWidth="290.0" styleClass="button1" stylesheets="@../../../css/fullpackstyling.css" text="Set Allocations" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../com.budgetapplication.images/set-allocations.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#onClickLogOut" prefHeight="57.0" prefWidth="294.0" styleClass="button1" stylesheets="@../../../css/fullpackstyling.css" text="Log Out" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../com.budgetapplication.images/exit.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <Pane layoutY="52.0" prefHeight="77.0" prefWidth="254.0" style="-fx-background-color: #062726; -fx-background-radius: 10;">
+               <children>
+                  <Label layoutX="81.0" layoutY="14.0" text="Budgeteering" textFill="WHITE">
+                     <font>
+                        <Font name="Freestyle Script" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="50.0" fitWidth="57.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../com.budgetapplication.images/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Pane layoutX="253.0" layoutY="-2.0" prefHeight="758.0" prefWidth="639.0">
+         <children>
+            <ImageView fitHeight="992.0" fitWidth="656.0" layoutY="-203.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../com.budgetapplication.images/tree-background.png" />
+               </image>
+            </ImageView>
+            <Button alignment="BOTTOM_CENTER" layoutX="38.0" layoutY="64.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../css/fullpackstyling.css" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Circle layoutX="120.0" layoutY="128.0" radius="46.0" stroke="#615360" strokeType="INSIDE" strokeWidth="0.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.3400000035762787" green="0.25839999318122864" blue="0.33320000767707825" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8552631735801697" green="0.8156676292419434" blue="0.8156676292419434" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill></Circle>
+            <ImageView fitHeight="50.0" fitWidth="55.0" layoutX="96.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../com.budgetapplication.images/housing.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="housingLbl" layoutX="53.0" layoutY="174.0" prefHeight="28.0" prefWidth="124.0" text="Housing: $0.00" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Button alignment="BOTTOM_CENTER" layoutX="248.0" layoutY="64.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../css/fullpackstyling.css" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button alignment="BOTTOM_CENTER" layoutX="451.0" layoutY="64.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../css/fullpackstyling.css" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button alignment="BOTTOM_CENTER" layoutX="37.0" layoutY="304.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../css/fullpackstyling.css" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button alignment="BOTTOM_CENTER" layoutX="248.0" layoutY="304.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../css/fullpackstyling.css" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button alignment="BOTTOM_CENTER" layoutX="451.0" layoutY="304.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../css/fullpackstyling.css" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button alignment="BOTTOM_CENTER" layoutX="37.0" layoutY="555.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../css/fullpackstyling.css" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button alignment="BOTTOM_CENTER" layoutX="248.0" layoutY="555.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../css/fullpackstyling.css" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button alignment="BOTTOM_CENTER" layoutX="451.0" layoutY="555.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../css/fullpackstyling.css" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Circle layoutX="331.0" layoutY="128.0" radius="46.0" stroke="#353535" strokeType="INSIDE" strokeWidth="0.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.3400000035762787" green="0.25839999318122864" blue="0.33320000767707825" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.007662835249042145">
+                           <color>
+                              <Color red="0.2078431397676468" green="0.2078431397676468" blue="0.2078431397676468" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8026315569877625" green="0.798915684223175" blue="0.798915684223175" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Circle>
+            <Circle layoutX="534.0" layoutY="128.0" radius="46.0" stroke="#062726" strokeType="INSIDE" strokeWidth="0.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.0470588244497776" green="0.27450981736183167" blue="0.2705882489681244" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8036062121391296" green="0.8947368264198303" blue="0.8916991353034973" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Circle>
+            <Label fx:id="transportLbl" layoutX="266.0" layoutY="163.0" prefHeight="50.0" prefWidth="138.0" text="Transportation: $0.00" textFill="WHITE" />
+            <Label fx:id="groceriesLbl" layoutX="466.0" layoutY="174.0" prefHeight="28.0" prefWidth="124.0" text="Groceries: $0.00" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Circle layoutX="120.0" layoutY="368.0" radius="46.0" stroke="#615360" strokeType="INSIDE" strokeWidth="0.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.7882353067398071" green="0.545098066329956" blue="0.12156862765550613" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8421052694320679" green="0.8070175647735596" blue="0.8070175647735596" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Circle>
+            <Circle layoutX="332.0" layoutY="368.0" radius="46.0" stroke="#615360" strokeType="INSIDE" strokeWidth="0.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.45614033937454224" green="0.6315789222717285" blue="0.41228070855140686" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.7629954218864441" green="0.8026315569877625" blue="0.7431774139404297" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Circle>
+            <Circle layoutX="534.0" layoutY="368.0" radius="46.0" stroke="#615360" strokeType="INSIDE" strokeWidth="0.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.4868420958518982" green="0.10818713158369064" blue="0.1586744636297226" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8458417057991028" green="0.8159999847412109" blue="0.8500000238418579" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Circle>
+            <Circle layoutX="120.0" layoutY="618.0" radius="46.0" stroke="#615360" strokeType="INSIDE" strokeWidth="0.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.3611111044883728" green="0.1666666716337204" blue="0.4736842215061188" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.9309941530227661" green="0.9122806787490845" blue="0.9473684430122375" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Circle>
+            <Circle layoutX="332.0" layoutY="618.0" radius="46.0" stroke="#365aae" strokeType="INSIDE" strokeWidth="0.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1534000039100647" green="0.26909375190734863" blue="0.5899999737739563" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8100000023841858" green="0.8100000023841858" blue="0.8100000023841858" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Circle>
+            <Circle layoutX="535.0" layoutY="618.0" radius="46.0" stroke="#7f8652" strokeType="INSIDE" strokeWidth="0.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.6836257576942444" green="0.7368420958518982" blue="0.20467835664749146" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8826754093170166" green="0.9078947305679321" blue="0.8978070020675659" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Circle>
+            <ImageView fitHeight="50.0" fitWidth="55.0" layoutX="306.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../com.budgetapplication.images/transportation.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="55.0" layoutX="510.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../com.budgetapplication.images/groceries.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="55.0" layoutX="96.0" layoutY="343.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../com.budgetapplication.images/utilities.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="utilitiesLbl" layoutX="53.0" layoutY="414.0" prefHeight="28.0" prefWidth="124.0" text="Utilities: $0.00" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="subscriptionsLbl" layoutX="264.0" layoutY="414.0" prefHeight="28.0" prefWidth="138.0" text="Subscriptions: $0.00" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="investmentsLbl" layoutX="465.0" layoutY="414.0" prefHeight="28.0" prefWidth="138.0" text="Investments: $0.00" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="personalLbl" layoutX="465.0" layoutY="670.0" prefHeight="28.0" prefWidth="138.0" text="Personal: $0.00" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="internetLbl" layoutX="266.0" layoutY="670.0" prefHeight="28.0" prefWidth="138.0" text="Internet: $0.00" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="medicalLbl" layoutX="52.0" layoutY="670.0" prefHeight="28.0" prefWidth="138.0" text="Medical: $0.00" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="71.0" fitWidth="71.0" layoutX="297.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../com.budgetapplication.images/subscriptions.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="71.0" fitWidth="61.0" layoutX="503.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../com.budgetapplication.images/investments.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="57.0" fitWidth="61.0" layoutX="93.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../com.budgetapplication.images/medical.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="57.0" fitWidth="61.0" layoutX="305.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../com.budgetapplication.images/internet.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="57.0" fitWidth="61.0" layoutX="507.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../com.budgetapplication.images/personal.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
