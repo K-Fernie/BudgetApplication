@@ -4,14 +4,13 @@ import com.budgetapplication.controller.utils.Alerts;
 import com.budgetapplication.controller.utils.SceneHandling;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import java.io.IOException;
 
 public class LoginScreen {
 
-    String userNameStor = "kfernelius";
+    String userNameStor = "tlgStudent";
     String passwordStor = "password1";
 
     @FXML
@@ -21,7 +20,7 @@ public class LoginScreen {
     private TextField userNameTxt;
 
     @FXML
-    void onActionLoginBtn(ActionEvent event) throws IOException {
+    void onActionLoginBtn(ActionEvent event){
         //TODO connect and query the database for the correct password and username
        String userName = userNameTxt.getText();
        String password = passwordTxt.getText();
@@ -31,8 +30,6 @@ public class LoginScreen {
        }else{
            Alerts.loginError();
        }
-
-
     }
 
 }

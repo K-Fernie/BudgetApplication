@@ -16,13 +16,18 @@ public class SceneHandling {
     static Parent scene;
     static Stage stage;
 
-    public static void sceneChanger(ActionEvent event, String resource, String title) throws IOException {
-        //TODO wrap this in a try/catch method to handle the IO exception
+    public static void sceneChanger(ActionEvent event, String resource, String title) {
+
+        try{
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(Objects.requireNonNull(BudgetAppClient.class.getResource(resource)));
         stage.setTitle(title);
         stage.setScene(new Scene(scene));
-        stage.show();
+        stage.show();}
+        catch (IOException e)
+        {
+            System.out.println("IOException: " + e.getMessage());
+        }
     }
 
 }
