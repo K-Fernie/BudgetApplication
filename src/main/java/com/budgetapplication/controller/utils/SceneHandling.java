@@ -1,4 +1,4 @@
-package com.budgetapplication.controller;
+package com.budgetapplication.controller.utils;
 
 import com.budgetapplication.main.BudgetAppClient;
 import javafx.event.ActionEvent;
