@@ -46,4 +46,4 @@ To exhibit data persistence the data entered will be stored in a mySQL database 
 
 Edited
 
-Team Member: Daniel An 
+Team Member: Daniel An (dma151@github.com)
