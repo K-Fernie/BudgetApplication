@@ -1,6 +1,7 @@
 package com.budgetapplication.controller;
 
 
+import com.budgetapplication.controller.utils.SceneHandling;
 import com.budgetapplication.main.BudgetAppClient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,30 +48,30 @@ public class BudgetOverview {
 
     @FXML
     void onClickEnterExpenditure(ActionEvent event) {
-
+        SceneHandling.sceneChanger(event, "enter-expenditure.fxml", "Enter Expenditure");
     }
 
     @FXML
     void onClickEnterIncome(ActionEvent event) {
+        SceneHandling.sceneChanger(event, "enter-income.fxml", "Enter Income");
 
     }
 
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
-        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(Objects.requireNonNull(BudgetAppClient.class.getResource("login-screen.fxml")));
-        stage.setTitle("Budget Overview");
-        stage.setScene(new Scene(scene));
-        stage.show();
+        SceneHandling.sceneChanger(event, "login-screen.fxml", "Login Screen");
+
     }
 
     @FXML
     void onClickSetAllocations(ActionEvent event) {
+        SceneHandling.sceneChanger(event, "set-budget-buckets.fxml", "Set Allocations");
 
     }
 
     @FXML
     void onClickTransactionPage(ActionEvent event) {
+        SceneHandling.sceneChanger(event, "transaction-overview.fxml", "Transaction Overview");
 
     }
 }
