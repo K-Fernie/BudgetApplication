@@ -1,6 +1,7 @@
 package com.budgetapplication.controller.utils;
 
 import com.budgetapplication.main.BudgetAppClient;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,6 +16,7 @@ public class SceneHandling {
 
     static Parent scene;
     static Stage stage;
+
 
     public static void sceneChanger(ActionEvent event, String resource, String title) {
 
