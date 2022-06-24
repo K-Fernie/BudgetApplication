@@ -1,6 +1,3 @@
-[6/18 11:16 AM] Kaitlyn FerneliusBudget Application Proposal
-    
-
 
 Summary:
 
