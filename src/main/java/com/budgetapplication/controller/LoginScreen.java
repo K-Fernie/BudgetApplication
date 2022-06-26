@@ -30,6 +30,6 @@ public class LoginScreen {
        }else{
            Alerts.loginError();
        }
-    }
 
+    }
 }
