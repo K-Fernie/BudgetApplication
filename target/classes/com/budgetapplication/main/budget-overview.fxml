@@ -428,6 +428,11 @@
                   <Image url="@../../../com.budgetapplication.images/personal.png" />
                </image>
             </ImageView>
+            <Label alignment="CENTER" layoutX="189.0" layoutY="6.0" prefHeight="50.0" prefWidth="279.0" text="Your Budget Overview" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Freestyle Script" size="36.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

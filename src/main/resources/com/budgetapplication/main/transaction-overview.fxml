@@ -142,9 +142,9 @@
                </styleClass>
             </TableView>
             <TextField fx:id="searchTxt" layoutX="433.0" layoutY="71.0" onInputMethodTextChanged="#onTypeSearch" prefHeight="22.0" prefWidth="192.0" promptText="search..." />
-            <Label layoutX="307.0" layoutY="71.0" prefHeight="25.0" prefWidth="120.0" text="Search Transactions" textFill="WHITE">
+            <Label layoutX="225.0" layoutY="59.0" text="Search Transactions" textFill="WHITE">
                <font>
-                  <Font size="13.0" />
+                  <Font name="Freestyle Script" size="36.0" />
                </font>
             </Label>
          </children>

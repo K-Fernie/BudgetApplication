@@ -91,6 +91,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <padding>
+                        <Insets right="50.0" />
+                     </padding>
                   </Button>
                </children>
             </VBox>
@@ -446,6 +449,11 @@
             <TextField fx:id="medicalTxt" layoutX="108.0" layoutY="672.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
             <TextField fx:id="internetTxt" layoutX="320.0" layoutY="672.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
             <TextField fx:id="internetTxt1" layoutX="528.0" layoutY="672.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
+            <Label layoutX="202.0" layoutY="6.0" text="Enter Allocation Amounts" textFill="WHITE">
+               <font>
+                  <Font name="Freestyle Script" size="36.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
