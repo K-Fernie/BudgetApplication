@@ -12,4 +12,12 @@ public class Alerts {
         alertInfo.setContentText("Enter valid Username and Password");
         alertInfo.showAndWait();
     }
+
+    public static void allocationInfo(){
+        alertInfo.setTitle("Allocation Running Total");
+        alertInfo.setHeaderText("Allocation Running Total");
+        alertInfo.setContentText("The running total shows you how much percent of your income has been allocated. " +
+                "The allocation sum must be equal to 100% before you can proceed from this page." );
+        alertInfo.showAndWait();
+    }
 }

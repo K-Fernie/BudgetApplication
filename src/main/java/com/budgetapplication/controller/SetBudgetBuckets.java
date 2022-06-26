@@ -1,5 +1,6 @@
 package com.budgetapplication.controller;
 
+import com.budgetapplication.controller.utils.Alerts;
 import com.budgetapplication.controller.utils.SceneHandling;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -70,7 +71,7 @@ public class SetBudgetBuckets {
 
     @FXML
     void onClickAllocationHelpTextBtn(ActionEvent event) {
-
+        Alerts.allocationInfo();
     }
 
     @FXML
@@ -81,7 +82,7 @@ public class SetBudgetBuckets {
 
     @FXML
     void onClickEnterTransaction(ActionEvent event) {
-        SceneHandling.sceneChanger(event, "enter-transaction.fxml", "Login Screen");
+        SceneHandling.sceneChanger(event, "enter-transaction.fxml", "Enter Transaction");
     }
 
     @FXML

@@ -16,7 +16,7 @@ public class EnterTransaction {
 
     @FXML
     void onClickEnterTransaction(ActionEvent event) {
-        SceneHandling.sceneChanger(event, "enter-transaction.fxml", "Login Screen");
+        SceneHandling.sceneChanger(event, "enter-transaction.fxml", "Enter Transaction");
     }
 
     @FXML
