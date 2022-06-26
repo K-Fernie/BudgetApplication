@@ -3,8 +3,11 @@ package com.budgetapplication.controller;
 import com.budgetapplication.controller.utils.SceneHandling;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
 public class EnterTransaction {
+    @FXML
+    private Label accountTotalLbl;
 
     @FXML
     void onClickBudgetOverview(ActionEvent event) {
