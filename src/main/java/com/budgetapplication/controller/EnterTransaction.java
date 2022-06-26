@@ -3,11 +3,37 @@ package com.budgetapplication.controller;
 import com.budgetapplication.controller.utils.SceneHandling;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 
 public class EnterTransaction {
     @FXML
     private Label accountTotalLbl;
+
+    @FXML
+    private TextField amountTxt;
+
+    @FXML
+    private ComboBox<?> categoryCB;
+
+    @FXML
+    private DatePicker datePicker;
+
+    @FXML
+    private TextField descriptionTxt;
+
+    @FXML
+    private RadioButton expenditureRad;
+
+    @FXML
+    private ToggleGroup income;
+
+    @FXML
+    private RadioButton incomeRad;
+
+    @FXML
+    void onActionSaveBtn(ActionEvent event) {
+
+    }
 
     @FXML
     void onClickBudgetOverview(ActionEvent event) {

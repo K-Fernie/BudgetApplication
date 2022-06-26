@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class SetBudgetBuckets {
+
     @FXML
     private TextField GroceriesTxt;
 

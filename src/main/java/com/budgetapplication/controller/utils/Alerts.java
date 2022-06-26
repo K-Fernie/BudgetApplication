@@ -1,6 +1,7 @@
 package com.budgetapplication.controller.utils;
 
 import javafx.scene.control.Alert;
+import javafx.scene.control.DialogPane;
 
 public class Alerts {
 
