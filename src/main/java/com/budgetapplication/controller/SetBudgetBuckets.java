@@ -5,13 +5,16 @@ import com.budgetapplication.controller.utils.SceneHandling;
 import com.budgetapplication.model.Transactions;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class SetBudgetBuckets {
+public class SetBudgetBuckets implements Initializable {
 
     @FXML
     private TextField GroceriesTxt;
@@ -105,6 +108,11 @@ public class SetBudgetBuckets {
     @FXML
     void onClickTransactionPage(ActionEvent event) {
         SceneHandling.sceneChanger(event, "transaction-overview.fxml", "Transaction Overview");
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 }
