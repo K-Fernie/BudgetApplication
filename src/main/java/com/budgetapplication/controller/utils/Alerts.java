@@ -24,4 +24,11 @@ public class Alerts {
         alertInfo.getDialogPane().setContent(text);
         alertInfo.showAndWait();
     }
+
+    public static void missingInputData(){
+        alertInfo.setTitle("Missing input data");
+        alertInfo.setHeaderText("Missing Input");
+        alertInfo.setContentText("Please ensure all fields are completed before saving");
+        alertInfo.showAndWait();
+    }
 }
