@@ -35,8 +35,8 @@ public class EnterTransaction {
 
     @FXML
     void onActionSaveBtn(ActionEvent event) {
-        // TODO: Figure out how to get radio value
-        Transaction.Category type = (incomeRad.getText().equals(true)) ? Transaction.Category.INCOME : Transaction.Category.EXPENDITURE;
+        // TODO: Figure out how to get radio value, we have to verify this logic
+        Transaction.Category type = (income.getSelectedToggle() == incomeRad) ? Transaction.Category.INCOME : Transaction.Category.EXPENDITURE;
         Transaction newTransaction = new Transaction(datePicker.getValue(), descriptionTxt.getText(),
                 categoryCB.getValue(), type, Double.parseDouble(amountTxt.getText()), Users.getActiveUser().getBankId());
         Transactions.addTransactions(newTransaction);
