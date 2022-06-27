@@ -2,6 +2,7 @@ package com.budgetapplication.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Users {
@@ -16,7 +17,7 @@ public class Users {
         if (null == users) {
             users = new ArrayList<User>();
             String File = "USERS.csv";
-            Scanner scan = new Scanner(Users.class.getResourceAsStream(File));
+            Scanner scan = new Scanner(Objects.requireNonNull(Users.class.getResourceAsStream(File)));
             String line;
             while ((line = scan.nextLine()) != null) {
                 String[] tokens = line.split(",");

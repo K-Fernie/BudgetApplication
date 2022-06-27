@@ -2,6 +2,7 @@ package com.budgetapplication.controller;
 
 import com.budgetapplication.controller.utils.SceneHandling;
 import com.budgetapplication.model.Transaction;
+import com.budgetapplication.model.Transactions;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -10,6 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.InputMethodEvent;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class TransactionOverview {
@@ -21,7 +23,7 @@ public class TransactionOverview {
     private TableColumn<Transaction, Double> amountCol;
 
     @FXML
-    private TableColumn<Transaction, Transaction.TransactionCategory> categoryCol;
+    private TableColumn<Transaction, Transaction.Category> categoryCol;
 
     @FXML
     private TableColumn<Transaction, LocalDate> dateCol;
@@ -51,7 +53,8 @@ public class TransactionOverview {
     }
 
     @FXML
-    void onClickLogOut(ActionEvent event) {
+    void onClickLogOut(ActionEvent event) throws IOException {
+        Transactions.writeTransactions();
         SceneHandling.sceneChanger(event, "login-screen.fxml", "Login Screen");
     }
 

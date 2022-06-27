@@ -1,9 +1,12 @@
 package com.budgetapplication.controller;
 
 import com.budgetapplication.controller.utils.SceneHandling;
+import com.budgetapplication.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+
+import java.io.IOException;
 
 public class EnterTransaction {
     @FXML
@@ -13,7 +16,7 @@ public class EnterTransaction {
     private TextField amountTxt;
 
     @FXML
-    private ComboBox<?> categoryCB;
+    private ComboBox<BucketType> categoryCB;
 
     @FXML
     private DatePicker datePicker;
@@ -32,7 +35,11 @@ public class EnterTransaction {
 
     @FXML
     void onActionSaveBtn(ActionEvent event) {
-
+        // TODO: Figure out how to get radio value
+        Transaction.Category type = (incomeRad.getText().equals(true)) ? Transaction.Category.INCOME : Transaction.Category.EXPENDITURE;
+        Transaction newTransaction = new Transaction(datePicker.getValue(), descriptionTxt.getText(),
+                categoryCB.getValue(), type, Double.parseDouble(amountTxt.getText()), Users.getActiveUser().getBankId());
+        Transactions.addTransactions(newTransaction);
     }
 
     @FXML
@@ -46,7 +53,8 @@ public class EnterTransaction {
     }
 
     @FXML
-    void onClickLogOut(ActionEvent event) {
+    void onClickLogOut(ActionEvent event) throws IOException {
+        Transactions.writeTransactions();
         SceneHandling.sceneChanger(event, "login-screen.fxml", "Login Screen");
     }
 

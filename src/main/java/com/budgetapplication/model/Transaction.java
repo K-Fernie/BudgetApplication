@@ -9,23 +9,25 @@ public class Transaction {
     private LocalDate date;
     private String description;
     private Enum<BucketType> category;
-    private Enum<TransactionCategory> type;
+    private Enum<Category> type;
     private double amount;
+    private int bankId;
     private static ObservableList<Transaction> transactions;
 
-    public enum TransactionCategory {
+    public enum Category {
 
         INCOME, EXPENDITURE
 
     }
 
     // add bankId in constructor
-    public Transaction(LocalDate date, String description, Enum<BucketType> category, TransactionCategory type, double amount) {
+    public Transaction(LocalDate date, String description, Enum<BucketType> category, Enum<Category> type, double amount, int bankId) {
         setDate(date);
         setDescription(description);
         setCategory(category);
         setType(type);
         setAmount(amount);
+        setBankId(bankId);
     }
 
     public LocalDate getDate() {
@@ -52,11 +54,11 @@ public class Transaction {
         this.category = category;
     }
 
-    public Enum<TransactionCategory> getType() {
+    public Enum<Category> getType() {
         return type;
     }
 
-    public void setType(Enum<TransactionCategory> type) {
+    public void setType(Enum<Category> type) {
         this.type = type;
     }
 
@@ -68,11 +70,24 @@ public class Transaction {
         this.amount = amount;
     }
 
+    public int getBankId() {
+        return bankId;
+    }
+
+    public void setBankId(int bankId) {
+        this.bankId = bankId;
+    }
+
     public ObservableList<Transaction> getTransactions() {
         return transactions;
     }
 
     public void setTransactions(ObservableList<Transaction> transactions) {
         this.transactions = transactions;
+    }
+
+    @Override
+    public String toString() {
+        return date + ", " + description + ", " + category + ", " + type + ", " + amount + ", " + bankId;
     }
 }

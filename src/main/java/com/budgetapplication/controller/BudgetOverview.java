@@ -2,6 +2,7 @@ package com.budgetapplication.controller;
 
 
 import com.budgetapplication.controller.utils.SceneHandling;
+import com.budgetapplication.model.Transactions;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -54,6 +55,7 @@ public class BudgetOverview {
 
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
+        Transactions.writeTransactions();
         SceneHandling.sceneChanger(event, "login-screen.fxml", "Login Screen");
 
     }

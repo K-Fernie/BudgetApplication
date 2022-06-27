@@ -2,11 +2,14 @@ package com.budgetapplication.controller;
 
 import com.budgetapplication.controller.utils.Alerts;
 import com.budgetapplication.controller.utils.SceneHandling;
+import com.budgetapplication.model.Transactions;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 
 public class SetBudgetBuckets {
 
@@ -87,7 +90,8 @@ public class SetBudgetBuckets {
     }
 
     @FXML
-    void onClickLogOut(ActionEvent event) {
+    void onClickLogOut(ActionEvent event) throws IOException {
+        Transactions.writeTransactions();
         SceneHandling.sceneChanger(event, "login-screen.fxml", "Login Screen");
 
     }
