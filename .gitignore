@@ -7,3 +7,8 @@
 .gradle/
 
 *.iml
+
+.DS_Store
+
+log/
+target/
