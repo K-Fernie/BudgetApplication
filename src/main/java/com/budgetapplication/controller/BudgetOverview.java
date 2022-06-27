@@ -74,4 +74,5 @@ public class BudgetOverview {
         SceneHandling.sceneChanger(event, "transaction-overview.fxml", "Transaction Overview");
 
     }
+
 }

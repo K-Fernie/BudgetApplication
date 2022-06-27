@@ -14,30 +14,31 @@ public class EnterExpenditure {
     }
 
     @FXML
-        void onClickEnterExpenditure(ActionEvent event) {
-            SceneHandling.sceneChanger(event, "enter-expenditure.fxml", "Enter Expenditure");
-        }
+    void onClickEnterExpenditure(ActionEvent event) {
+        SceneHandling.sceneChanger(event, "enter-expenditure.fxml", "Enter Expenditure");
+    }
 
-        @FXML
-        void onClickEnterIncome(ActionEvent event) {
-            SceneHandling.sceneChanger(event, "enter-income.fxml", "Enter Income");
-        }
+    @FXML
+    void onClickEnterIncome(ActionEvent event) {
+        SceneHandling.sceneChanger(event, "enter-income.fxml", "Enter Income");
+    }
 
-        @FXML
-        void onClickLogOut(ActionEvent event) {
-            SceneHandling.sceneChanger(event, "login-screen.fxml", "Login Screen");
+    @FXML
+    void onClickLogOut(ActionEvent event) {
+        // logout initializer, store any new information in the transactions file.
+        SceneHandling.sceneChanger(event, "login-screen.fxml", "Login Screen");
 
-        }
+    }
 
-        @FXML
-        void onClickSetAllocations(ActionEvent event) {
-            SceneHandling.sceneChanger(event, "set-budget-buckets.fxml", "Set Allocations");
+    @FXML
+    void onClickSetAllocations(ActionEvent event) {
+        SceneHandling.sceneChanger(event, "set-budget-buckets.fxml", "Set Allocations");
 
-        }
+    }
 
-        @FXML
-        void onClickTransactionPage(ActionEvent event) {
-            SceneHandling.sceneChanger(event, "transaction-overview.fxml", "Transaction Overview");
+    @FXML
+    void onClickTransactionPage(ActionEvent event) {
+        SceneHandling.sceneChanger(event, "transaction-overview.fxml", "Transaction Overview");
 
-        }
+    }
 }
