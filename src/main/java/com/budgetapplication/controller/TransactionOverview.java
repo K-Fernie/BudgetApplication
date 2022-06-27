@@ -1,20 +1,30 @@
 package com.budgetapplication.controller;
 
 import com.budgetapplication.controller.utils.SceneHandling;
+import com.budgetapplication.model.BankAccount;
+import com.budgetapplication.model.BucketType;
 import com.budgetapplication.model.Transaction;
 import com.budgetapplication.model.Transactions;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.InputMethodEvent;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
-public class TransactionOverview {
+public class TransactionOverview implements Initializable {
+
+    private static final ObservableList<Transaction> allTransactions = BankAccount.getAllTransactions();
 
     @FXML
     private Label accountTotalLbl;
@@ -35,7 +45,7 @@ public class TransactionOverview {
     private TextField searchTxt;
 
     @FXML
-    private TableView<?> transactionTableView;
+    private TableView<Transaction> transactionTableView;
 
     //TODO update this column with the correct type once it's created i.e. transaction type enum
     @FXML
@@ -73,5 +83,16 @@ public class TransactionOverview {
     @FXML
     void onTypeSearch(InputMethodEvent event) {
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        //TODO fix the formatting of the Table View so the table doesn't look so trashy
+        transactionTableView.setItems(allTransactions);
+        dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
+        descriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+        categoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
+        typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
+        amountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
     }
 }
