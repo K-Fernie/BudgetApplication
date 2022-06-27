@@ -2,10 +2,8 @@ package com.budgetapplication.controller;
 
 import com.budgetapplication.controller.utils.SceneHandling;
 import com.budgetapplication.model.BankAccount;
-import com.budgetapplication.model.BucketType;
 import com.budgetapplication.model.Transaction;
 import com.budgetapplication.model.Transactions;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -94,5 +92,7 @@ public class TransactionOverview implements Initializable {
         categoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
         typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
         amountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
+
+        //TODO implement search function to show an updated list for category/type
     }
 }
