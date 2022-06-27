@@ -4,6 +4,7 @@ import com.budgetapplication.controller.utils.SceneHandling;
 import com.budgetapplication.model.BankAccount;
 import com.budgetapplication.model.Transaction;
 import com.budgetapplication.model.Transactions;
+import com.budgetapplication.model.Users;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -86,6 +87,8 @@ public class TransactionOverview implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //TODO fix the formatting of the Table View so the table doesn't look so trashy
+        Transactions.readTransactions(Users.getActiveUser().getBankId());
+        BankAccount.setAllTransactions(Transactions.getTransactions());
         transactionTableView.setItems(allTransactions);
         dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
         descriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));

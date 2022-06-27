@@ -2,17 +2,27 @@ package com.budgetapplication.controller;
 
 
 import com.budgetapplication.controller.utils.SceneHandling;
+import com.budgetapplication.model.BankAccount;
+import com.budgetapplication.model.Buckets;
 import com.budgetapplication.model.Transactions;
+import com.budgetapplication.model.Users;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.Collections;
+import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 
-public class BudgetOverview {
+public class BudgetOverview implements Initializable {
 
     static Parent scene;
     static Stage stage;
@@ -112,4 +122,9 @@ public class BudgetOverview {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Buckets.readBuckets();
+        BankAccount.setAllBuckets(Buckets.getBuckets());
+    }
 }

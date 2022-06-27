@@ -5,6 +5,12 @@ public class Bucket {
     private double percentage;
     private double bucketTotal;
 
+    public Bucket(BucketType bucket, double percentage, double bucketTotal){
+        setBucketType(bucket);
+        setPercentage(percentage);
+        setBucketTotal(bucketTotal);
+    }
+
     public BucketType getBucketType() {
         return bucketType;
     }
@@ -27,5 +33,11 @@ public class Bucket {
 
     public void setBucketTotal(double bucketTotal) {
         this.bucketTotal = bucketTotal;
+    }
+
+    @Override
+    public String toString() {
+        // BucketType bucket, double percentage, double bucketTotal
+        return bucketType + ", " + percentage + ", " + bucketTotal;
     }
 }
