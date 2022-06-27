@@ -1,14 +1,18 @@
 package com.budgetapplication.controller;
 
+import com.budgetapplication.controller.utils.Alerts;
 import com.budgetapplication.controller.utils.SceneHandling;
 import com.budgetapplication.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class EnterTransaction {
+public class EnterTransaction implements Initializable {
     @FXML
     private Label accountTotalLbl;
 
@@ -35,11 +39,15 @@ public class EnterTransaction {
 
     @FXML
     void onActionSaveBtn(ActionEvent event) {
-        // TODO: Figure out how to get radio value, we have to verify this logic
-        Transaction.Category type = (income.getSelectedToggle() == incomeRad) ? Transaction.Category.INCOME : Transaction.Category.EXPENDITURE;
-        Transaction newTransaction = new Transaction(datePicker.getValue(), descriptionTxt.getText(),
-                categoryCB.getValue(), type, Double.parseDouble(amountTxt.getText()), Users.getActiveUser().getBankId());
-        Transactions.addTransactions(newTransaction);
+        try {
+            Transaction.Category type = (income.getSelectedToggle() == incomeRad) ? Transaction.Category.INCOME : Transaction.Category.EXPENDITURE;
+            Transaction newTransaction = new Transaction(datePicker.getValue(), descriptionTxt.getText(),
+                    categoryCB.getValue(), type, Double.parseDouble(amountTxt.getText()), Users.getActiveUser().getBankId());
+            Transactions.addTransactions(newTransaction);
+        } catch (Exception e) {
+            Alerts.missingInputData();
+        }
+
     }
 
     @FXML
@@ -66,5 +74,10 @@ public class EnterTransaction {
     @FXML
     void onClickTransactionPage(ActionEvent event) {
         SceneHandling.sceneChanger(event, "transaction-overview.fxml", "Transaction Overview");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }
