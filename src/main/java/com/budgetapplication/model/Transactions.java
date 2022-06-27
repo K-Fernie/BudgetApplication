@@ -1,5 +1,8 @@
 package com.budgetapplication.model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,12 +14,12 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Transactions {
-    private static List<Transaction> transaction;
+    private static ObservableList<Transaction> transaction;
     private static int transactionSize = 0;
 
     public static synchronized void readTransactions(int bankId) {
         if (null == transaction) {
-            transaction = new ArrayList<Transaction>();
+            transaction = FXCollections.observableArrayList();
             String File = "TRANSACTIONS.csv";
             Scanner scan = new Scanner(Objects.requireNonNull(Transactions.class.getResourceAsStream(File)));
             String line;
@@ -53,5 +56,9 @@ public class Transactions {
 
     public static synchronized void addTransactions(Transaction newTransaction){
         transaction.add(newTransaction);
+    }
+
+    public static synchronized ObservableList<Transaction> getTransactions(){
+        return transaction;
     }
 }
