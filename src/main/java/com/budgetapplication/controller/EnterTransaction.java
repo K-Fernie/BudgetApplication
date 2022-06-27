@@ -4,8 +4,7 @@ import com.budgetapplication.controller.utils.SceneHandling;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class EnterExpenditure {
-
+public class EnterTransaction {
 
     @FXML
     void onClickBudgetOverview(ActionEvent event) {
@@ -13,19 +12,14 @@ public class EnterExpenditure {
 
     }
 
-    @FXML
-    void onClickEnterExpenditure(ActionEvent event) {
-        SceneHandling.sceneChanger(event, "enter-expenditure.fxml", "Enter Expenditure");
-    }
 
     @FXML
-    void onClickEnterIncome(ActionEvent event) {
-        SceneHandling.sceneChanger(event, "enter-income.fxml", "Enter Income");
+    void onClickEnterTransaction(ActionEvent event) {
+        SceneHandling.sceneChanger(event, "enter-transaction.fxml", "Login Screen");
     }
 
     @FXML
     void onClickLogOut(ActionEvent event) {
-        // logout initializer, store any new information in the transactions file.
         SceneHandling.sceneChanger(event, "login-screen.fxml", "Login Screen");
 
     }

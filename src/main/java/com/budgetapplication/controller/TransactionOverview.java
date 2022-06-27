@@ -12,19 +12,13 @@ public class TransactionOverview {
     }
 
     @FXML
-    void onClickEnterExpenditure(ActionEvent event) {
-        SceneHandling.sceneChanger(event, "enter-expenditure.fxml", "Enter Expenditure");
-    }
-
-    @FXML
-    void onClickEnterIncome(ActionEvent event) {
-        SceneHandling.sceneChanger(event, "enter-income.fxml", "Enter Income");
+    void onClickEnterTransaction(ActionEvent event) {
+        SceneHandling.sceneChanger(event, "enter-transaction.fxml", "Login Screen");
     }
 
     @FXML
     void onClickLogOut(ActionEvent event) {
         SceneHandling.sceneChanger(event, "login-screen.fxml", "Login Screen");
-
     }
 
     @FXML

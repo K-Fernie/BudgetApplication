@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="758.0" prefWidth="903.0" style="-fx-background-color: #062726;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.budgetapplication.controller.EnterIncome">
+<AnchorPane prefHeight="758.0" prefWidth="903.0" style="-fx-background-color: #062726;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.budgetapplication.controller.EnterTransaction">
    <children>
       <AnchorPane layoutX="9.0" maxWidth="-Infinity" prefHeight="758.0" prefWidth="245.0" style="-fx-background-color: #01200F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -45,18 +45,7 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#onClickEnterExpenditure" prefHeight="57.0" prefWidth="294.0" styleClass="button1" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" text="Enter Expenditure" textFill="WHITE">
-                     <graphic>
-                        <ImageView fitHeight="38.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../com.budgetapplication.images/enter-expenditure.png" />
-                           </image></ImageView>
-                     </graphic>
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#onClickEnterIncome" prefHeight="57.0" prefWidth="286.0" style="-fx-background-color: #062726;" styleClass="button1" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" text="Enter Income" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#onClickEnterTransaction" prefHeight="57.0" prefWidth="286.0" style="-fx-background-color: #062726;" styleClass="button1" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" text="Enter Transaction" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="36.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                            <image>
