@@ -18,7 +18,7 @@ public class Transactions {
                 String[] tokens = line.split(",");
                 // TODO: Add condition that allows only user with bankId info
                 transaction.add(new Transaction(LocalDate.parse(tokens[0]), tokens[1],
-                        Enum.valueOf(BucketType.class, tokens[2]), Enum.valueOf(TransactionCategory.class, tokens[3]),
+                        Enum.valueOf(BucketType.class, tokens[2]), Enum.valueOf(Transaction.TransactionCategory.class, tokens[3]),
                         Double.parseDouble(tokens[4])));
             }
             scan.close();

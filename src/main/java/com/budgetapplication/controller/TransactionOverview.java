@@ -2,7 +2,6 @@ package com.budgetapplication.controller;
 
 import com.budgetapplication.controller.utils.SceneHandling;
 import com.budgetapplication.model.Transaction;
-import com.budgetapplication.model.TransactionCategory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -22,7 +21,7 @@ public class TransactionOverview {
     private TableColumn<Transaction, Double> amountCol;
 
     @FXML
-    private TableColumn<Transaction, TransactionCategory> categoryCol;
+    private TableColumn<Transaction, Transaction.TransactionCategory> categoryCol;
 
     @FXML
     private TableColumn<Transaction, LocalDate> dateCol;
