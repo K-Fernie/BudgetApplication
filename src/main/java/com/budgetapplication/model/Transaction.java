@@ -13,6 +13,7 @@ public class Transaction {
     private double amount;
     private static ObservableList<Transaction> transactions;
 
+    // add bankId in constructor
     public Transaction(LocalDate date, String description, Enum<BucketType> category, Enum<TransactionCategory> type, double amount) {
         setDate(date);
         setDescription(description);
