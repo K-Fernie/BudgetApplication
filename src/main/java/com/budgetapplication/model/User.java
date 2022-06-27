@@ -1,30 +1,21 @@
 package com.budgetapplication.model;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class User {
-
-    private String name;
     private String userLogin;
     private String password;
-    private ArrayList<BankAccount> accounts;
+    private int bankId;
 
     //constructor used to create a new user
-    public User(String name, String userLogin, String password, BankAccount acct) {
-        this.name = name;
+    public User(int bankId, String userLogin, String password) {
         this.userLogin = userLogin;
         this.password = password;
-        accounts.add(acct);
-    }
-
-    public String getName() {
-        return name;
+        this.bankId  = bankId;
     }
 
     //TODO query the database for the user, if the user exists do nothing
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getUserLogin() {
         return userLogin;
@@ -43,4 +34,13 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public int getBankId() {
+        return bankId;
+    }
+
+    public void setBankId(int bankId) {
+        this.bankId = bankId;
+    }
+
 }

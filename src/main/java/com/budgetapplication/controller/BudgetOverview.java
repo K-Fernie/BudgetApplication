@@ -2,22 +2,22 @@ package com.budgetapplication.controller;
 
 
 import com.budgetapplication.controller.utils.SceneHandling;
-import com.budgetapplication.main.BudgetAppClient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
+
 
 public class BudgetOverview {
+
     static Parent scene;
     static Stage stage;
+
+    @FXML
+    private Label accountTotalLbl;
 
     @FXML
     private Label groceriesLbl;
@@ -49,7 +49,7 @@ public class BudgetOverview {
 
     @FXML
     void onClickEnterTransaction(ActionEvent event) {
-        SceneHandling.sceneChanger(event, "enter-transaction.fxml", "Login Screen");
+        SceneHandling.sceneChanger(event, "enter-transaction.fxml", "Enter Transaction");
     }
 
     @FXML
@@ -69,4 +69,45 @@ public class BudgetOverview {
         SceneHandling.sceneChanger(event, "transaction-overview.fxml", "Transaction Overview");
 
     }
+
+    @FXML
+    void onClickGroceriesBucket(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickHousingBucket(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickInvestmentsBucket(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickMedicalBucket(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickPersonalBucket(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickTransportationBucket(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickUtilitiesBucket(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onclickSubscriptionsBucket(ActionEvent event) {
+
+    }
+
 }
