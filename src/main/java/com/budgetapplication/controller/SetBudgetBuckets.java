@@ -108,15 +108,15 @@ public class SetBudgetBuckets implements Initializable {
         accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
 
         //TODO, in findPercentageValue convert from decimal to number so that it displays better
-        housingTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.HOUSING)));
-        transportationTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.TRANSPORTATION)));
-        groceriesTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.GROCERIES)));
-        utilitiesTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.UTILITIES)));
-        subscriptionsTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.SUBSCRIPTIONS)));
-        investmentsTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.INVESTMENTS)));
-        medicalTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.MEDICAL)));
-        internetTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.INTERNET)));
-        personalTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.PERSONAL)));
+        housingTxt.setText(String.valueOf(findPercentageValue(BucketType.HOUSING)));
+        transportationTxt.setText(String.valueOf(findPercentageValue(BucketType.TRANSPORTATION)));
+        groceriesTxt.setText(String.valueOf(findPercentageValue(BucketType.GROCERIES)));
+        utilitiesTxt.setText(String.valueOf(findPercentageValue(BucketType.UTILITIES)));
+        subscriptionsTxt.setText(String.valueOf(findPercentageValue(BucketType.SUBSCRIPTIONS)));
+        investmentsTxt.setText(String.valueOf(findPercentageValue(BucketType.INVESTMENTS)));
+        medicalTxt.setText(String.valueOf(findPercentageValue(BucketType.MEDICAL)));
+        internetTxt.setText(String.valueOf(findPercentageValue(BucketType.INTERNET)));
+        personalTxt.setText(String.valueOf(findPercentageValue(BucketType.PERSONAL)));
 
     }
 }

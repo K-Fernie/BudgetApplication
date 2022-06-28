@@ -56,6 +56,16 @@ public class BankAccount {
         }
     }
 
+    public static boolean isAllocated(){
+        boolean isAllocated = false;
+        double percentageSum = 0.00;
+        for(Bucket bucket: allBuckets){
+            percentageSum += bucket.getPercentage();
+        }
+        isAllocated = percentageSum == 1.00;
+        return isAllocated;
+    }
+
     public int getAccountId() {
         return accountId;
     }
@@ -69,6 +79,7 @@ public class BankAccount {
     }
 
     public static void setAccountTotal() {
+        accountTotal = 0;
         for(Bucket bucket: allBuckets){
             accountTotal += bucket.getBucketTotal();
         }
