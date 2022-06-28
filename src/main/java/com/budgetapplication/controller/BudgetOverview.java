@@ -124,8 +124,7 @@ public class BudgetOverview implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Buckets.readBuckets();
-        // BankAccount.setAllBuckets(Buckets.getBuckets());
+
         housingLbl.setText("Housing: $" + findLabelValue(BucketType.HOUSING));
         transportLbl.setText("Transportation: $" + findLabelValue(BucketType.TRANSPORTATION));
         groceriesLbl.setText("Groceries: $" + findLabelValue(BucketType.GROCERIES));
