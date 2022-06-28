@@ -2,6 +2,8 @@ package com.budgetapplication.controller;
 
 import com.budgetapplication.controller.utils.Alerts;
 import com.budgetapplication.controller.utils.SceneHandling;
+import com.budgetapplication.model.BankAccount;
+import com.budgetapplication.model.Buckets;
 import com.budgetapplication.model.User;
 import com.budgetapplication.model.Users;
 import javafx.event.ActionEvent;
@@ -26,6 +28,13 @@ public class LoginScreen {
         userLogin = new User(0, userNameTxt.getText(), passwordTxt.getText());
         if (login()) {
             Users.setActiveUser(userLogin.getUserLogin());
+            try {
+                Buckets.readBuckets();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            BankAccount.setAllBuckets(Buckets.getBuckets());
+            BankAccount.setAccountTotal();
             SceneHandling.sceneChanger(event, "budget-overview.fxml", "Budget Overview");
         } else {
             Alerts.loginError();
