@@ -31,4 +31,12 @@ public class Alerts {
         alertInfo.setContentText("Please ensure all fields are completed before saving");
         alertInfo.showAndWait();
     }
+
+    public static void allocationInfoIncorrect(){
+        alertInfo.setTitle("Allocation Info Needs to Be Set");
+        alertInfo.setHeaderText("Allocation Info Needs to Be Set");
+        alertInfo.setContentText("The sum of all allocation settings must equal 100% before you can proceed from this page. " +
+                "Please review all settings and click \"Save Bucket Updates\" if you are satisfied");
+        alertInfo.showAndWait();
+    }
 }

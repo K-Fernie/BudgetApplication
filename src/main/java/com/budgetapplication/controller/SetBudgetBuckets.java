@@ -61,13 +61,20 @@ public class SetBudgetBuckets implements Initializable {
 
     @FXML
     void onClickBudgetOverview(ActionEvent event) {
-        SceneHandling.sceneChanger(event, "budget-overview.fxml", "Budget Overview");
-
+        if(BankAccount.isAllocated()) {
+            SceneHandling.sceneChanger(event, "budget-overview.fxml", "Budget Overview");
+        } else{
+            Alerts.allocationInfoIncorrect();
+        }
     }
 
     @FXML
     void onClickEnterTransaction(ActionEvent event) {
-        SceneHandling.sceneChanger(event, "enter-transaction.fxml", "Enter Transaction");
+        if (BankAccount.isAllocated()) {
+            SceneHandling.sceneChanger(event, "enter-transaction.fxml", "Enter Transaction");
+        } else {
+            Alerts.allocationInfoIncorrect();
+        }
     }
 
     @FXML
@@ -75,7 +82,6 @@ public class SetBudgetBuckets implements Initializable {
         Transactions.writeTransactions();
         Buckets.writeTransactions();
         SceneHandling.sceneChanger(event, "login-screen.fxml", "Login Screen");
-
     }
 
     @FXML
@@ -86,7 +92,12 @@ public class SetBudgetBuckets implements Initializable {
 
     @FXML
     void onClickTransactionPage(ActionEvent event) {
-        SceneHandling.sceneChanger(event, "transaction-overview.fxml", "Transaction Overview");
+
+        if (BankAccount.isAllocated()) {
+            SceneHandling.sceneChanger(event, "transaction-overview.fxml", "Transaction Overview");
+        } else {
+            Alerts.allocationInfoIncorrect();
+        }
 
     }
 
