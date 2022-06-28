@@ -88,7 +88,9 @@ public class TransactionOverview implements Initializable {
 
     @FXML
     void onActionRemoveTransaction(ActionEvent event) {
-
+        Transaction transaction = transactionTableView.getSelectionModel().getSelectedItem();
+        allTransactions.remove(transaction);
+        BankAccount.setAccountTotal();
     }
 
     @Override
