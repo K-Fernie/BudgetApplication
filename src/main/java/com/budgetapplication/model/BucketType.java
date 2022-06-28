@@ -12,4 +12,10 @@ public enum BucketType {
     public static ObservableList<BucketType> getBucketTypes() {
         return bucketTypes;
     }
+
+    @Override
+    public String toString() {
+        String copy = super.toString();
+        return copy.substring(0, 1).toUpperCase() + copy.substring(1).toLowerCase();
+    }
 }
