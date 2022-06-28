@@ -92,7 +92,6 @@ public class TransactionOverview implements Initializable {
 
         try {
             allTransactions = BankAccount.getAllTransactions();
-
             transactionTableView.setItems(allTransactions);
             dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
             descriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
