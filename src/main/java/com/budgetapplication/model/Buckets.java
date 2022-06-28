@@ -3,10 +3,7 @@ package com.budgetapplication.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Scanner;
@@ -14,17 +11,16 @@ import java.util.Scanner;
 public class Buckets {
     private static ObservableList<Bucket> allocateBucket;
 
-    public static synchronized void readBuckets() {
+    public static synchronized void readBuckets() throws IOException {
         if (null == allocateBucket) {
             allocateBucket = FXCollections.observableArrayList();
-            String File = "BUCKETS.csv";
-            Scanner scan = new Scanner(Objects.requireNonNull(Transactions.class.getResourceAsStream(File)));
+            String file = "src/main/resources/com.budgetapplication.file/bucket-info.csv";
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
             String line;
-            while ((line = scan.nextLine()) != null) {
+            while ((line = bufferedReader.readLine()) != null) {
                 String[] tokens = line.split(",");
                 allocateBucket.add(new Bucket(Enum.valueOf(BucketType.class, tokens[0]), Double.parseDouble(tokens[1]), Double.parseDouble(tokens[2])));
             }
-            scan.close();
         }
     }
 
