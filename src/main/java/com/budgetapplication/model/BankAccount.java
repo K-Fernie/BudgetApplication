@@ -1,9 +1,6 @@
 package com.budgetapplication.model;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
-import java.util.Arrays;
 
 public class BankAccount {
 
@@ -31,6 +28,24 @@ public class BankAccount {
             }
         }
         return bucketTotal;
+    }
+
+    public static void updateBuckets(Transaction transaction){
+        double transactionAmt = transaction.getAmount();
+        accountTotal = 0.00;
+        for(Bucket bucket: allBuckets) {
+            if (transaction.getType().equals(Transaction.Category.INCOME)) {
+                double bucketTotal = bucket.getBucketTotal() + (transactionAmt * bucket.getPercentage());
+                bucket.setBucketTotal(bucketTotal);
+            }
+            else{
+                if(bucket.getBucketType().equals(transaction.getCategory())){
+                    double bucketTotal = bucket.getBucketTotal() - transactionAmt;
+                    bucket.setBucketTotal(bucketTotal);
+                }
+            }
+            accountTotal += bucket.getBucketTotal();
+        }
     }
 
     public int getAccountId() {
@@ -68,8 +83,6 @@ public class BankAccount {
     }
 
     public static void addTransaction(Transaction transaction){
-        //TODO call a method to update buckets when a transaction is added to the list
-        //TODO call a method to update the account total when a transaction is added to the list
         allTransactions.add(transaction);
     }
 }

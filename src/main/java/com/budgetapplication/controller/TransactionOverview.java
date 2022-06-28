@@ -88,7 +88,6 @@ public class TransactionOverview implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //TODO fix the formatting of the Table View css so the table doesn't look so trashy
         accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
 
         try {

@@ -52,6 +52,8 @@ public class EnterTransaction implements Initializable {
 
             Transaction toAdd = new Transaction(date, description, category, type, amount, bankId);
             BankAccount.addTransaction(toAdd);
+            BankAccount.updateBuckets(toAdd);
+            accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
 
         } catch (Exception e) {
             Alerts.missingInputData();
