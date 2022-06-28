@@ -10,6 +10,15 @@ class BankAccountTest {
         Buckets.readBuckets();
         BankAccount.setAllBuckets(Buckets.getBuckets());
         Bucket testBucket = new Bucket(BucketType.HOUSING, 0.30, 300.00);
+    }
+
+    @Test
+    public void findPercentageValue_validate() {
+
+    }
+
+    @Test
+    public void findLabelValue_test(){
 
     }
 }
