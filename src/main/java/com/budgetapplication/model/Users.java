@@ -1,5 +1,6 @@
 package com.budgetapplication.model;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -9,21 +10,16 @@ public class Users {
     private static List<User> users;
     private static User activeUser;
 
-    /*
-    UserId, Name, Password
-    1101, HenryR, Dfowjf121
-     */
-    public static synchronized void readUsers() {
+    public static synchronized void readUsers() throws IOException {
         if (null == users) {
             users = new ArrayList<User>();
-            String File = "com.budgetapplication.file.user-info.csv;";
-            Scanner scan = new Scanner(Objects.requireNonNull(Users.class.getResourceAsStream(File)));
+            String File = "src/main/resources/com.budgetapplication.file/user-info.csv";
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(File), "UTF-8"));
             String line;
-            while ((line = scan.nextLine()) != null) {
+            while ((line = bufferedReader.readLine()) != null) {
                 String[] tokens = line.split(",");
                 users.add(new User(Integer.parseInt(tokens[0]), tokens[1], tokens[2]));
             }
-            scan.close();
         }
     }
 
@@ -32,15 +28,12 @@ public class Users {
         if (null == users) {
             throw new IllegalStateException("user list is not initialised");
         }
-
         return users.stream()
                 .filter((u) -> u.getUserLogin().equals(username))
-                .filter((u) -> u.getPassword().equals(password))
-                .findFirst()
-                .isPresent();
-
+                .anyMatch((u) -> u.getPassword().equals(password));
     }
-    public static synchronized void setActiveUser(String username){
+
+    public static synchronized void setActiveUser(String username) {
         activeUser = users.stream()
                 .filter((u) -> u.getUserLogin().equals(username))
                 .findFirst()
