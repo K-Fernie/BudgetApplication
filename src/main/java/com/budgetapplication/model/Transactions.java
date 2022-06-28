@@ -27,7 +27,6 @@ public class Transactions {
     }
 
     public static synchronized void writeTransactions() throws IOException {
-        // TODO write to the transactions file and save new content
         String file = "src/main/resources/com.budgetapplication.file/transaction-info.csv";
         Writer output;
         try {
