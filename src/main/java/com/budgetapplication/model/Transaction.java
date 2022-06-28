@@ -89,6 +89,6 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return date + ", " + description + ", " + category + ", " + type + ", " + amount + ", " + bankId + "\n";
+        return date + "," + description + "," + category + "," + type + "," + amount + "," + bankId + "\n";
     }
 }

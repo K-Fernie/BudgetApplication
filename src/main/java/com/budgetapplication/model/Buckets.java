@@ -4,9 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.*;
-import java.time.LocalDate;
-import java.util.Objects;
-import java.util.Scanner;
 
 public class Buckets {
     private static ObservableList<Bucket> allocateBucket;
