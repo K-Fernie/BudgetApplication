@@ -450,7 +450,7 @@
             </ImageView>
             <TextField fx:id="housingTxt" layoutX="108.0" layoutY="179.0" prefHeight="25.0" prefWidth="57.0" styleClass="text-field" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
             <TextField fx:id="transportationTxt" layoutX="348.0" layoutY="179.0" prefHeight="25.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
-            <TextField fx:id="GroceriesTxt" layoutX="532.0" layoutY="179.0" prefHeight="25.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
+            <TextField fx:id="groceriesTxt" layoutX="532.0" layoutY="179.0" prefHeight="25.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
             <TextField fx:id="utilitiesTxt" layoutX="108.0" layoutY="419.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
             <TextField fx:id="subscriptionsTxt" layoutX="350.0" layoutY="419.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
             <TextField fx:id="investmentsTxt" layoutX="546.0" layoutY="419.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
