@@ -25,11 +25,10 @@ public class Buckets {
     }
 
     public static synchronized void writeTransactions() throws IOException {
-        // TODO write to the transactions file and save new content
-        String File = "TRANSACTIONS.csv";
+        String file = "src/main/resources/com.budgetapplication.file/bucket-info.csv";
         Writer output;
         try {
-            output = new BufferedWriter(new FileWriter(File));
+            output = new BufferedWriter(new FileWriter(file));
             for (int i = 0; i < allocateBucket.size(); i++) {
                 output.write(allocateBucket.get(i).toString());
             }

@@ -38,7 +38,6 @@ public class Bucket {
 
     @Override
     public String toString() {
-        // BucketType bucket, double percentage, double bucketTotal
-        return bucketType + ", " + percentage + ", " + bucketTotal;
+        return bucketType + "," + percentage + "," + bucketTotal + "\n";
     }
 }
