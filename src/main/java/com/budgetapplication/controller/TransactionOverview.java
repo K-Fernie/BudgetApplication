@@ -86,6 +86,11 @@ public class TransactionOverview implements Initializable {
 
     }
 
+    @FXML
+    void onActionRemoveTransaction(ActionEvent event) {
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
