@@ -167,7 +167,7 @@
                   <Image url="@../../../com.budgetapplication.images/housing.png" />
                </image>
             </ImageView>
-            <Label fx:id="housingLbl" alignment="BOTTOM_LEFT" layoutX="46.0" layoutY="174.0" prefHeight="28.0" prefWidth="124.0" text="Housing: " textFill="WHITE">
+            <Label alignment="BOTTOM_LEFT" layoutX="46.0" layoutY="174.0" prefHeight="28.0" prefWidth="124.0" text="Housing: " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -253,11 +253,11 @@
                   </LinearGradient>
                </fill>
             </Circle>
-            <Label fx:id="transportLbl" layoutX="259.0" layoutY="168.0" prefHeight="50.0" prefWidth="138.0" text="Transportation:" textFill="WHITE">
+            <Label layoutX="259.0" layoutY="168.0" prefHeight="50.0" prefWidth="138.0" text="Transportation:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <Label fx:id="groceriesLbl" layoutX="466.0" layoutY="179.0" prefHeight="28.0" prefWidth="124.0" text="Groceries: " textFill="WHITE">
+            <Label layoutX="466.0" layoutY="179.0" prefHeight="28.0" prefWidth="124.0" text="Groceries: " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -385,32 +385,32 @@
                   <Image url="@../../../com.budgetapplication.images/utilities.png" />
                </image>
             </ImageView>
-            <Label fx:id="utilitiesLbl" layoutX="52.0" layoutY="419.0" prefHeight="28.0" prefWidth="124.0" text="Utilities: " textFill="WHITE">
+            <Label layoutX="52.0" layoutY="419.0" prefHeight="28.0" prefWidth="124.0" text="Utilities: " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="subscriptionsLbl" layoutX="259.0" layoutY="419.0" prefHeight="28.0" prefWidth="138.0" text="Subscriptions: " textFill="WHITE">
+            <Label layoutX="259.0" layoutY="419.0" prefHeight="28.0" prefWidth="138.0" text="Subscriptions: " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="investmentsLbl" layoutX="463.0" layoutY="419.0" prefHeight="28.0" prefWidth="138.0" text="Investments: " textFill="WHITE">
+            <Label layoutX="463.0" layoutY="419.0" prefHeight="28.0" prefWidth="138.0" text="Investments: " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="personalLbl" layoutX="463.0" layoutY="672.0" prefHeight="28.0" prefWidth="138.0" text="Personal: " textFill="WHITE">
+            <Label layoutX="463.0" layoutY="672.0" prefHeight="28.0" prefWidth="138.0" text="Personal: " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="internetLbl" layoutX="262.0" layoutY="672.0" prefHeight="28.0" prefWidth="138.0" text="Internet: " textFill="WHITE">
+            <Label layoutX="262.0" layoutY="672.0" prefHeight="28.0" prefWidth="138.0" text="Internet: " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="medicalLbl" layoutX="51.0" layoutY="672.0" prefHeight="28.0" prefWidth="138.0" text="Medical: " textFill="WHITE">
+            <Label layoutX="51.0" layoutY="672.0" prefHeight="28.0" prefWidth="138.0" text="Medical: " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -448,7 +448,7 @@
             <TextField fx:id="investmentsTxt" layoutX="546.0" layoutY="419.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
             <TextField fx:id="medicalTxt" layoutX="108.0" layoutY="672.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
             <TextField fx:id="internetTxt" layoutX="320.0" layoutY="672.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
-            <TextField fx:id="internetTxt1" layoutX="528.0" layoutY="672.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
+            <TextField fx:id="personalTxt" layoutX="528.0" layoutY="672.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
             <Label layoutX="202.0" layoutY="6.0" text="Enter Allocation Amounts" textFill="WHITE">
                <font>
                   <Font name="Freestyle Script" size="36.0" />

@@ -1,18 +1,51 @@
 package com.budgetapplication.model;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class BankAccount {
 
     private static int accountId;
-    private static double accountTotal = 0.0;
+    private static double accountTotal;
     private static ObservableList<Bucket> allBuckets = FXCollections.observableArrayList();
     private static ObservableList<Transaction> allTransactions = FXCollections.observableArrayList();
 
-    public BankAccount(int accountId, double accountTotal) {
-        this.accountId = accountId;
-        this.accountTotal = accountTotal;
+
+    public static double findPercentageValue(BucketType type){
+        double bucketPercent = 0.00;
+        for(Bucket bucket: BankAccount.getAllBuckets()){
+            if(bucket.getBucketType().equals(type)){
+                bucketPercent = bucket.getPercentage();
+            }
+        }
+        return bucketPercent;
+    }
+
+    public static double findLabelValue(BucketType type){
+        double bucketTotal = 0.00;
+        for(Bucket bucket: BankAccount.getAllBuckets()){
+            if(bucket.getBucketType().equals(type)){
+                bucketTotal = bucket.getBucketTotal();
+            }
+        }
+        return bucketTotal;
+    }
+
+    public static void updateBuckets(Transaction transaction){
+        double transactionAmt = transaction.getAmount();
+        accountTotal = 0.00;
+        for(Bucket bucket: allBuckets) {
+            if (transaction.getType().equals(Transaction.Category.INCOME)) {
+                double bucketTotal = bucket.getBucketTotal() + (transactionAmt * bucket.getPercentage());
+                bucket.setBucketTotal(bucketTotal);
+            }
+            else{
+                if(bucket.getBucketType().equals(transaction.getCategory())){
+                    double bucketTotal = bucket.getBucketTotal() - transactionAmt;
+                    bucket.setBucketTotal(bucketTotal);
+                }
+            }
+            accountTotal += bucket.getBucketTotal();
+        }
     }
 
     public int getAccountId() {
@@ -23,12 +56,14 @@ public class BankAccount {
         this.accountId = accountId;
     }
 
-    public double getAccountTotal() {
+    public static double getAccountTotal() {
         return accountTotal;
     }
 
-    public void setAccountTotal(double accountTotal) {
-        this.accountTotal = accountTotal;
+    public static void setAccountTotal() {
+        for(Bucket bucket: allBuckets){
+            accountTotal += bucket.getBucketTotal();
+        }
     }
 
     public static ObservableList<Bucket> getAllBuckets() {
@@ -49,11 +84,5 @@ public class BankAccount {
 
     public static void addTransaction(Transaction transaction){
         allTransactions.add(transaction);
-    }
-
-    public static void setAccountTotal(){
-        for(int i = 0; i < allTransactions.size(); i++){
-            accountTotal += allBuckets.get(i).getBucketTotal();
-        }
     }
 }

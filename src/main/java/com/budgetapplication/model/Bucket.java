@@ -11,6 +11,7 @@ public class Bucket {
         setBucketTotal(bucketTotal);
     }
 
+
     public BucketType getBucketType() {
         return bucketType;
     }
@@ -40,6 +41,4 @@ public class Bucket {
         // BucketType bucket, double percentage, double bucketTotal
         return bucketType + ", " + percentage + ", " + bucketTotal;
     }
-
-    // bucketTotal = buckettotal * (% of income)
 }

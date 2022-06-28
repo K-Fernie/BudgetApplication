@@ -21,7 +21,7 @@ public class LoginScreen {
     private TextField userNameTxt;
 
     @FXML
-    void onActionLoginBtn(ActionEvent event) throws IOException {
+    void onActionLoginBtn(ActionEvent event) {
         //TODO connect and query the database for the correct password and username
         userLogin = new User(0, userNameTxt.getText(), passwordTxt.getText());
         if (login()) {
@@ -32,7 +32,7 @@ public class LoginScreen {
         }
     }
 
-    private boolean login() throws IOException {
+    private boolean login() {
         Users.readUsers();
         return Users.find(userLogin.getUserLogin(), userLogin.getPassword());
     }
