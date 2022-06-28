@@ -103,15 +103,15 @@ public class SetBudgetBuckets implements Initializable {
 
     @FXML
     void onClickSaveBucketUpdates(ActionEvent event) {
-        BankAccount.updateBucketAllocations(BucketType.HOUSING, Double.parseDouble(housingTxt.getText()));
-        BankAccount.updateBucketAllocations(BucketType.TRANSPORTATION, Double.parseDouble(transportationTxt.getText()));
-        BankAccount.updateBucketAllocations(BucketType.GROCERIES,Double.parseDouble(groceriesTxt.getText()));
-        BankAccount.updateBucketAllocations(BucketType.UTILITIES, Double.parseDouble(utilitiesTxt.getText()));
-        BankAccount.updateBucketAllocations(BucketType.SUBSCRIPTIONS, Double.parseDouble(subscriptionsTxt.getText()));
-        BankAccount.updateBucketAllocations(BucketType.INVESTMENTS, Double.parseDouble(investmentsTxt.getText()));
-        BankAccount.updateBucketAllocations(BucketType.MEDICAL, Double.parseDouble(medicalTxt.getText()));
-        BankAccount.updateBucketAllocations(BucketType.INTERNET, Double.parseDouble(internetTxt.getText()));
-        BankAccount.updateBucketAllocations(BucketType.PERSONAL, Double.parseDouble(personalTxt.getText()));
+        BankAccount.updateBucketAllocations(BucketType.HOUSING, Double.parseDouble(housingTxt.getText()) / 100.0);
+        BankAccount.updateBucketAllocations(BucketType.TRANSPORTATION, Double.parseDouble(transportationTxt.getText()) / 100.0);
+        BankAccount.updateBucketAllocations(BucketType.GROCERIES,Double.parseDouble(groceriesTxt.getText()) / 100.0);
+        BankAccount.updateBucketAllocations(BucketType.UTILITIES, Double.parseDouble(utilitiesTxt.getText()) / 100.0);
+        BankAccount.updateBucketAllocations(BucketType.SUBSCRIPTIONS, Double.parseDouble(subscriptionsTxt.getText()) / 100.0);
+        BankAccount.updateBucketAllocations(BucketType.INVESTMENTS, Double.parseDouble(investmentsTxt.getText()) / 100.0);
+        BankAccount.updateBucketAllocations(BucketType.MEDICAL, Double.parseDouble(medicalTxt.getText()) / 100.0);
+        BankAccount.updateBucketAllocations(BucketType.INTERNET, Double.parseDouble(internetTxt.getText()) / 100.0);
+        BankAccount.updateBucketAllocations(BucketType.PERSONAL, Double.parseDouble(personalTxt.getText()) / 100.0);
     }
 
     @Override
@@ -119,15 +119,15 @@ public class SetBudgetBuckets implements Initializable {
         accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
 
         //TODO, in findPercentageValue convert from decimal to number so that it displays better
-        housingTxt.setText(String.valueOf(findPercentageValue(BucketType.HOUSING)));
-        transportationTxt.setText(String.valueOf(findPercentageValue(BucketType.TRANSPORTATION)));
-        groceriesTxt.setText(String.valueOf(findPercentageValue(BucketType.GROCERIES)));
-        utilitiesTxt.setText(String.valueOf(findPercentageValue(BucketType.UTILITIES)));
-        subscriptionsTxt.setText(String.valueOf(findPercentageValue(BucketType.SUBSCRIPTIONS)));
-        investmentsTxt.setText(String.valueOf(findPercentageValue(BucketType.INVESTMENTS)));
-        medicalTxt.setText(String.valueOf(findPercentageValue(BucketType.MEDICAL)));
-        internetTxt.setText(String.valueOf(findPercentageValue(BucketType.INTERNET)));
-        personalTxt.setText(String.valueOf(findPercentageValue(BucketType.PERSONAL)));
+        housingTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.HOUSING)));
+        transportationTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.TRANSPORTATION)));
+        groceriesTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.GROCERIES)));
+        utilitiesTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.UTILITIES)));
+        subscriptionsTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.SUBSCRIPTIONS)));
+        investmentsTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.INVESTMENTS)));
+        medicalTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.MEDICAL)));
+        internetTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.INTERNET)));
+        personalTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.PERSONAL)));
 
     }
 }
