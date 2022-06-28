@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 public class BankAccount {
 
     private static int accountId;
-    private static double accountTotal;
+    private static double accountTotal = 0.0;
     private static ObservableList<Bucket> allBuckets = FXCollections.observableArrayList();
     private static ObservableList<Transaction> allTransactions = FXCollections.observableArrayList();
 
@@ -49,5 +49,11 @@ public class BankAccount {
 
     public static void addTransaction(Transaction transaction){
         allTransactions.add(transaction);
+    }
+
+    public static void setAccountTotal(){
+        for(int i = 0; i < allTransactions.size(); i++){
+            accountTotal += allBuckets.get(i).getBucketTotal();
+        }
     }
 }
