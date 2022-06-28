@@ -13,8 +13,8 @@ public class Users {
     public static synchronized void readUsers() throws IOException {
         if (null == users) {
             users = new ArrayList<User>();
-            String File = "src/main/resources/com.budgetapplication.file/user-info.csv";
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(File), "UTF-8"));
+            String file = "src/main/resources/com.budgetapplication.file/user-info.csv";
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] tokens = line.split(",");
