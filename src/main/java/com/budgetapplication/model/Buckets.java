@@ -27,7 +27,7 @@ public class Buckets {
         try {
             output = new BufferedWriter(new FileWriter(file));
             for (int i = 0; i < allocateBucket.size(); i++) {
-                output.write(allocateBucket.get(i).toString());
+                output.write(allocateBucket.get(i).toString().toUpperCase());
             }
             output.close();
         } catch (IOException e) {
