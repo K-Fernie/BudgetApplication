@@ -20,7 +20,7 @@ import static com.budgetapplication.model.BankAccount.findPercentageValue;
 public class SetBudgetBuckets implements Initializable {
 
     @FXML
-    private TextField GroceriesTxt;
+    private TextField groceriesTxt;
 
     @FXML
     private Label accountTotalLbl;
@@ -90,7 +90,15 @@ public class SetBudgetBuckets implements Initializable {
 
     @FXML
     void onClickSaveBucketUpdates(ActionEvent event) {
-
+        BankAccount.updateBucketAllocations(BucketType.HOUSING, Double.parseDouble(housingTxt.getText()));
+        BankAccount.updateBucketAllocations(BucketType.TRANSPORTATION, Double.parseDouble(transportationTxt.getText()));
+        BankAccount.updateBucketAllocations(BucketType.GROCERIES,Double.parseDouble(groceriesTxt.getText()));
+        BankAccount.updateBucketAllocations(BucketType.UTILITIES, Double.parseDouble(utilitiesTxt.getText()));
+        BankAccount.updateBucketAllocations(BucketType.SUBSCRIPTIONS, Double.parseDouble(subscriptionsTxt.getText()));
+        BankAccount.updateBucketAllocations(BucketType.INVESTMENTS, Double.parseDouble(investmentsTxt.getText()));
+        BankAccount.updateBucketAllocations(BucketType.MEDICAL, Double.parseDouble(medicalTxt.getText()));
+        BankAccount.updateBucketAllocations(BucketType.INTERNET, Double.parseDouble(internetTxt.getText()));
+        BankAccount.updateBucketAllocations(BucketType.PERSONAL, Double.parseDouble(personalTxt.getText()));
     }
 
     @Override
@@ -100,7 +108,7 @@ public class SetBudgetBuckets implements Initializable {
         //TODO, in findPercentageValue convert from decimal to number so that it displays better
         housingTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.HOUSING)));
         transportationTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.TRANSPORTATION)));
-        GroceriesTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.GROCERIES)));
+        groceriesTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.GROCERIES)));
         utilitiesTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.UTILITIES)));
         subscriptionsTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.SUBSCRIPTIONS)));
         investmentsTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.INVESTMENTS)));

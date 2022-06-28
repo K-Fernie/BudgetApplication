@@ -48,6 +48,14 @@ public class BankAccount {
         }
     }
 
+    public static void updateBucketAllocations(BucketType type, double percent) {
+        for (Bucket bucket : allBuckets) {
+            if (bucket.getBucketType().equals(type)) {
+                bucket.setPercentage(percent);
+            }
+        }
+    }
+
     public int getAccountId() {
         return accountId;
     }
