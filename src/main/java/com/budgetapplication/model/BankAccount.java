@@ -9,7 +9,11 @@ public class BankAccount {
     private static ObservableList<Bucket> allBuckets = FXCollections.observableArrayList();
     private static ObservableList<Transaction> allTransactions = FXCollections.observableArrayList();
 
-
+    /**
+     * findPercentageValue() - finds the type of bucket and returns its associated allocation percentage.
+     * @param BucketType type
+     * @return bucketPercent
+     */
     public static double findPercentageValue(BucketType type){
         double bucketPercent = 0.00;
         for(Bucket bucket: BankAccount.getAllBuckets()){

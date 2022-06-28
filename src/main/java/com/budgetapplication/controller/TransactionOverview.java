@@ -89,6 +89,7 @@ public class TransactionOverview implements Initializable {
         Transaction transaction = transactionTableView.getSelectionModel().getSelectedItem();
         allTransactions.remove(transaction);
         BankAccount.setAccountTotal();
+        accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
     }
 
     @Override
