@@ -170,12 +170,12 @@
                            </font></Label>
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
-                              <RadioButton fx:id="incomeRad" mnemonicParsing="false" selected="true" text="Income" textFill="WHITE">
+                              <RadioButton fx:id="incomeRad" mnemonicParsing="false" onAction="#onSelectedIncome" selected="true" text="Income" textFill="WHITE">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="income" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="expenditureRad" mnemonicParsing="false" text="Expenditure" textFill="WHITE" toggleGroup="$income">
+                              <RadioButton fx:id="expenditureRad" mnemonicParsing="false" onAction="#onSelectedExpenditure" text="Expenditure" textFill="WHITE" toggleGroup="$income">
                                  <padding>
                                     <Insets left="25.0" />
                                  </padding>

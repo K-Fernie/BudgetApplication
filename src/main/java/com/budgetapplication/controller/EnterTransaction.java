@@ -3,6 +3,8 @@ package com.budgetapplication.controller;
 import com.budgetapplication.controller.utils.Alerts;
 import com.budgetapplication.controller.utils.SceneHandling;
 import com.budgetapplication.model.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -91,13 +93,39 @@ public class EnterTransaction implements Initializable {
         SceneHandling.sceneChanger(event, "transaction-overview.fxml", "Transaction Overview");
     }
 
+    @FXML
+    void onSelectedExpenditure(ActionEvent event) {
+        ObservableList<BucketType> cbExpenditure = FXCollections.observableArrayList();
+        cbExpenditure.add(BucketType.HOUSING);
+        cbExpenditure.add(BucketType.TRANSPORTATION);
+        cbExpenditure.add(BucketType.GROCERIES);
+        cbExpenditure.add(BucketType.UTILITIES);
+        cbExpenditure.add(BucketType.SUBSCRIPTIONS);
+        cbExpenditure.add(BucketType.INVESTMENTS);
+        cbExpenditure.add(BucketType.MEDICAL);
+        cbExpenditure.add(BucketType.INTERNET);
+        cbExpenditure.add(BucketType.PERSONAL);
+        categoryCB.setItems(cbExpenditure);
+
+    }
+
+    @FXML
+    void onSelectedIncome(ActionEvent event) {
+        ObservableList<BucketType> cbIncome = FXCollections.observableArrayList();
+        cbIncome.add(BucketType.PAYCHECK);
+        cbIncome.add(BucketType.GIFT);
+        categoryCB.setItems(cbIncome);
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
-        //filter these lists to show the first 9 categories if Expenditure is selected
-        //filter to show the last 9 categories if Income is selected
         categoryCB.setVisibleRowCount(9);
-        categoryCB.setItems(BucketType.getBucketTypes());
+        ObservableList<BucketType> cbIncome = FXCollections.observableArrayList();
+        cbIncome.add(BucketType.PAYCHECK);
+        cbIncome.add(BucketType.GIFT);
+        categoryCB.setItems(cbIncome);
 
     }
 }
