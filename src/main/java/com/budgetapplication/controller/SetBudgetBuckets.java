@@ -88,6 +88,11 @@ public class SetBudgetBuckets implements Initializable {
 
     }
 
+    @FXML
+    void onClickSaveBucketUpdates(ActionEvent event) {
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));

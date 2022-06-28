@@ -84,9 +84,17 @@
                         <Font size="14.0" />
                      </font>
                   </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickSaveBucketUpdates" prefHeight="76.0" prefWidth="254.0" styleClass="button4" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" text="Save Bucket Updates" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="100.0" />
+                     </VBox.margin>
+                  </Button>
                   <Button fx:id="buttonLbl" mnemonicParsing="false" onAction="#onClickAllocationHelpTextBtn" prefHeight="76.0" prefWidth="254.0" styleClass="button4" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" text="Allocation Running Total: " textFill="WHITE">
                      <VBox.margin>
-                        <Insets top="180.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
                      <font>
                         <Font size="14.0" />
