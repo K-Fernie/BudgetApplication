@@ -35,7 +35,14 @@ public class LoginScreen {
             }
             BankAccount.setAllBuckets(Buckets.getBuckets());
             BankAccount.setAccountTotal();
-            SceneHandling.sceneChanger(event, "budget-overview.fxml", "Budget Overview");
+            if (BankAccount.isAllocated()){
+                SceneHandling.sceneChanger(event, "budget-overview.fxml", "Budget Overview");
+            }
+            else{
+                SceneHandling.sceneChanger(event, "set-budget-buckets.fxml", "Set Allocations");
+                Alerts.allocationInfo();
+            }
+
         } else {
             Alerts.loginError();
         }
