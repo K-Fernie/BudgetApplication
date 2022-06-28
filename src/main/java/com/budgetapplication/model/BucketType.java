@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 public enum BucketType {
     HOUSING, TRANSPORTATION, GROCERIES, UTILITIES, SUBSCRIPTIONS, INVESTMENTS, MEDICAL, INTERNET, PERSONAL, PAYCHECK, GIFT;
 
-    //creating an observable list of bucket types to be displayed in a combobox/choice box
+    //TODO override the toString method to show the enum not in all caps
     private static final ObservableList<BucketType> bucketTypes = FXCollections.observableArrayList(BucketType.values());
 
     public static ObservableList<BucketType> getBucketTypes() {

@@ -2,10 +2,7 @@ package com.budgetapplication.controller;
 
 
 import com.budgetapplication.controller.utils.SceneHandling;
-import com.budgetapplication.model.BankAccount;
-import com.budgetapplication.model.Buckets;
-import com.budgetapplication.model.Transactions;
-import com.budgetapplication.model.Users;
+import com.budgetapplication.model.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,11 +18,14 @@ import java.util.Collections;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
+import static com.budgetapplication.model.BankAccount.findLabelValue;
+
 
 public class BudgetOverview implements Initializable {
 
     static Parent scene;
     static Stage stage;
+
 
     @FXML
     private Label accountTotalLbl;
@@ -124,7 +124,17 @@ public class BudgetOverview implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Buckets.readBuckets();
-        BankAccount.setAllBuckets(Buckets.getBuckets());
+//        Buckets.readBuckets();
+//        BankAccount.setAllBuckets(Buckets.getBuckets());
+        housingLbl.setText("Housing: $" + findLabelValue(BucketType.HOUSING));
+        transportLbl.setText("Transportation: $" + findLabelValue(BucketType.TRANSPORTATION));
+        groceriesLbl.setText("Groceries: $" + findLabelValue(BucketType.GROCERIES));
+        utilitiesLbl.setText("Utilities: $" + findLabelValue(BucketType.UTILITIES));
+        subscriptionsLbl.setText("Subscriptions: $" + findLabelValue(BucketType.SUBSCRIPTIONS));
+        investmentsLbl.setText("Investements: $" + findLabelValue(BucketType.INVESTMENTS));
+        medicalLbl.setText("Medical: $" + findLabelValue(BucketType.MEDICAL));
+        internetLbl.setText("Internet: $" + findLabelValue(BucketType.INTERNET));
+        personalLbl.setText("Personal: $" + findLabelValue(BucketType.PERSONAL));
+        accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
     }
 }

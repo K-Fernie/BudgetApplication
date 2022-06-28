@@ -11,6 +11,7 @@ public class Bucket {
         setBucketTotal(bucketTotal);
     }
 
+
     public BucketType getBucketType() {
         return bucketType;
     }

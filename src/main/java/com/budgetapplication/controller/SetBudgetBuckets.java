@@ -2,17 +2,20 @@ package com.budgetapplication.controller;
 
 import com.budgetapplication.controller.utils.Alerts;
 import com.budgetapplication.controller.utils.SceneHandling;
+import com.budgetapplication.model.BankAccount;
+import com.budgetapplication.model.BucketType;
 import com.budgetapplication.model.Transactions;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static com.budgetapplication.model.BankAccount.findPercentageValue;
 
 public class SetBudgetBuckets implements Initializable {
 
@@ -22,56 +25,30 @@ public class SetBudgetBuckets implements Initializable {
     @FXML
     private Label accountTotalLbl;
 
-    @FXML
-    private Button buttonLbl;
-
-    @FXML
-    private Label groceriesLbl;
-
-    @FXML
-    private Label housingLbl;
 
     @FXML
     private TextField housingTxt;
 
-    @FXML
-    private Label internetLbl;
 
     @FXML
     private TextField internetTxt;
 
-    @FXML
-    private TextField internetTxt1;
-
-    @FXML
-    private Label investmentsLbl;
 
     @FXML
     private TextField investmentsTxt;
 
     @FXML
-    private Label medicalLbl;
+    private TextField personalTxt;
 
     @FXML
     private TextField medicalTxt;
 
     @FXML
-    private Label personalLbl;
-
-    @FXML
-    private Label subscriptionsLbl;
-
-    @FXML
     private TextField subscriptionsTxt;
 
-    @FXML
-    private Label transportLbl;
 
     @FXML
     private TextField transportationTxt;
-
-    @FXML
-    private Label utilitiesLbl;
 
     @FXML
     private TextField utilitiesTxt;
@@ -113,6 +90,18 @@ public class SetBudgetBuckets implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
+
+        //TODO, in findPercentageValue convert from decimal to number so that it displays better
+        housingTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.HOUSING)));
+        transportationTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.TRANSPORTATION)));
+        GroceriesTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.GROCERIES)));
+        utilitiesTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.UTILITIES)));
+        subscriptionsTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.SUBSCRIPTIONS)));
+        investmentsTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.INVESTMENTS)));
+        medicalTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.MEDICAL)));
+        internetTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.INTERNET)));
+        personalTxt.setPromptText(String.valueOf(findPercentageValue(BucketType.PERSONAL)));
 
     }
 }

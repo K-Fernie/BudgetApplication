@@ -3,6 +3,8 @@ package com.budgetapplication.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.Arrays;
+
 public class BankAccount {
 
     private static int accountId;
@@ -10,9 +12,25 @@ public class BankAccount {
     private static ObservableList<Bucket> allBuckets = FXCollections.observableArrayList();
     private static ObservableList<Transaction> allTransactions = FXCollections.observableArrayList();
 
-    public BankAccount(int accountId, double accountTotal) {
-        this.accountId = accountId;
-        this.accountTotal = accountTotal;
+
+    public static double findPercentageValue(BucketType type){
+        double bucketPercent = 0.00;
+        for(Bucket bucket: BankAccount.getAllBuckets()){
+            if(bucket.getBucketType().equals(type)){
+                bucketPercent = bucket.getPercentage();
+            }
+        }
+        return bucketPercent;
+    }
+
+    public static double findLabelValue(BucketType type){
+        double bucketTotal = 0.00;
+        for(Bucket bucket: BankAccount.getAllBuckets()){
+            if(bucket.getBucketType().equals(type)){
+                bucketTotal = bucket.getBucketTotal();
+            }
+        }
+        return bucketTotal;
     }
 
     public int getAccountId() {
@@ -23,12 +41,14 @@ public class BankAccount {
         this.accountId = accountId;
     }
 
-    public double getAccountTotal() {
+    public static double getAccountTotal() {
         return accountTotal;
     }
 
-    public void setAccountTotal(double accountTotal) {
-        this.accountTotal = accountTotal;
+    public static void setAccountTotal() {
+        for(Bucket bucket: allBuckets){
+            accountTotal += bucket.getBucketTotal();
+        }
     }
 
     public static ObservableList<Bucket> getAllBuckets() {
@@ -48,6 +68,8 @@ public class BankAccount {
     }
 
     public static void addTransaction(Transaction transaction){
+        //TODO call a method to update buckets when a transaction is added to the list
+        //TODO call a method to update the account total when a transaction is added to the list
         allTransactions.add(transaction);
     }
 }

@@ -16,7 +16,7 @@ public class Users {
     public static synchronized void readUsers() {
         if (null == users) {
             users = new ArrayList<User>();
-            String File = "USERS.csv";
+            String File = "com.budgetapplication.file.user-info.csv;";
             Scanner scan = new Scanner(Objects.requireNonNull(Users.class.getResourceAsStream(File)));
             String line;
             while ((line = scan.nextLine()) != null) {

@@ -20,8 +20,8 @@ public class Transactions {
     public static synchronized void readTransactions(int bankId) {
         if (null == transaction) {
             transaction = FXCollections.observableArrayList();
-            String File = "TRANSACTIONS.csv";
-            Scanner scan = new Scanner(Objects.requireNonNull(Transactions.class.getResourceAsStream(File)));
+            String file = "com.budgetapplication.file/transaction-info.csv";
+            Scanner scan = new Scanner(Objects.requireNonNull(Transactions.class.getResourceAsStream(file)));
             String line;
             while ((line = scan.nextLine()) != null) {
                 String[] tokens = line.split(",");

@@ -6,6 +6,8 @@ import com.budgetapplication.model.Transaction;
 import com.budgetapplication.model.Transactions;
 import com.budgetapplication.model.Users;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,7 +25,7 @@ import java.util.ResourceBundle;
 
 public class TransactionOverview implements Initializable {
 
-    private static final ObservableList<Transaction> allTransactions = BankAccount.getAllTransactions();
+    private static ObservableList<Transaction> allTransactions = BankAccount.getAllTransactions();
 
     @FXML
     private Label accountTotalLbl;
@@ -86,16 +88,49 @@ public class TransactionOverview implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //TODO fix the formatting of the Table View so the table doesn't look so trashy
-        Transactions.readTransactions(Users.getActiveUser().getBankId());
-        BankAccount.setAllTransactions(Transactions.getTransactions());
-        transactionTableView.setItems(allTransactions);
-        dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
-        descriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
-        categoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
-        typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
-        amountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        //TODO fix the formatting of the Table View css so the table doesn't look so trashy
+        accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
 
-        //TODO implement search function to show an updated list for category/type
+        try {
+            allTransactions = BankAccount.getAllTransactions();
+
+            transactionTableView.setItems(allTransactions);
+            dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
+            descriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+            categoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
+            typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
+            amountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        //TODO find a way to compartmentalize the sort function
+        FilteredList<Transaction> filteredTransactions = new FilteredList<>(allTransactions, p -> true);
+
+        searchTxt.textProperty().addListener((observable, oldValue, newValue) ->
+        {
+            filteredTransactions.setPredicate(transaction ->
+            {
+                if(newValue == null || newValue.isEmpty())
+                {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                if(transaction.getCategory().toString().toLowerCase().contains(lowerCaseFilter))
+                {
+                    return true;
+                }
+                else
+                    return false;
+            });
+        });
+
+        SortedList<Transaction> sortedTransaction = new SortedList<>(filteredTransactions);
+        sortedTransaction.comparatorProperty().bind(transactionTableView.comparatorProperty());
+        transactionTableView.setItems(sortedTransaction);
+        transactionTableView.setPlaceholder(new Label("No transactions were found"));
     }
+        //TODO implement search function to show an updated list for category/type
 }
+

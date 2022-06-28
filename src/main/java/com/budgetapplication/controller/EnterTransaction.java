@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class EnterTransaction implements Initializable {
@@ -40,14 +41,26 @@ public class EnterTransaction implements Initializable {
     @FXML
     void onActionSaveBtn(ActionEvent event) {
         try {
+
             Transaction.Category type = (income.getSelectedToggle() == incomeRad) ? Transaction.Category.INCOME : Transaction.Category.EXPENDITURE;
-            Transaction newTransaction = new Transaction(datePicker.getValue(), descriptionTxt.getText(),
-                    categoryCB.getValue(), type, Double.parseDouble(amountTxt.getText()), Users.getActiveUser().getBankId());
-            Transactions.addTransactions(newTransaction);
+            LocalDate date = datePicker.getValue();
+            BucketType category = categoryCB.getSelectionModel().getSelectedItem();
+            String description = descriptionTxt.getText();
+            double amount = Double.parseDouble(amountTxt.getText());
+            //TODO update bankId to make sense in the context of the active user
+            int bankId = 123;
+
+            Transaction toAdd = new Transaction(date, description, category, type, amount, bankId);
+            BankAccount.addTransaction(toAdd);
+
         } catch (Exception e) {
             Alerts.missingInputData();
         }
 
+        datePicker.getEditor().clear();
+        categoryCB.getSelectionModel().clearSelection();
+        descriptionTxt.clear();
+        amountTxt.clear();
     }
 
     @FXML
@@ -78,6 +91,11 @@ public class EnterTransaction implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
+        //filter these lists to show the first 9 categories if Expenditure is selected
+        //filter to show the last 9 categories if Income is selected
+        categoryCB.setVisibleRowCount(9);
+        categoryCB.setItems(BucketType.getBucketTypes());
 
     }
 }
