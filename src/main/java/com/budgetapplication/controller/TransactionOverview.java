@@ -1,10 +1,7 @@
 package com.budgetapplication.controller;
 
 import com.budgetapplication.controller.utils.SceneHandling;
-import com.budgetapplication.model.BankAccount;
-import com.budgetapplication.model.Transaction;
-import com.budgetapplication.model.Transactions;
-import com.budgetapplication.model.Users;
+import com.budgetapplication.model.*;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -66,6 +63,7 @@ public class TransactionOverview implements Initializable {
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
         Transactions.writeTransactions();
+        Buckets.writeTransactions();
         SceneHandling.sceneChanger(event, "login-screen.fxml", "Login Screen");
     }
 
@@ -84,6 +82,13 @@ public class TransactionOverview implements Initializable {
     @FXML
     void onTypeSearch(InputMethodEvent event) {
 
+    }
+
+    @FXML
+    void onActionRemoveTransaction(ActionEvent event) {
+        Transaction transaction = transactionTableView.getSelectionModel().getSelectedItem();
+        allTransactions.remove(transaction);
+        BankAccount.setAccountTotal();
     }
 
     @Override

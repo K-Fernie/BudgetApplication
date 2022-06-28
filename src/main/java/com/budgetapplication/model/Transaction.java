@@ -20,6 +20,7 @@ public class Transaction {
 
     }
 
+
     // add bankId in constructor
     //TODO fix the Enum<BucketType> declaration to just say BucketType
     public Transaction(LocalDate date, String description, BucketType category, Category type, double amount, int bankId) {

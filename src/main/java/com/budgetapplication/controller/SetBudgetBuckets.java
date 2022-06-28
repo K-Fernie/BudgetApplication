@@ -4,6 +4,7 @@ import com.budgetapplication.controller.utils.Alerts;
 import com.budgetapplication.controller.utils.SceneHandling;
 import com.budgetapplication.model.BankAccount;
 import com.budgetapplication.model.BucketType;
+import com.budgetapplication.model.Buckets;
 import com.budgetapplication.model.Transactions;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -72,6 +73,7 @@ public class SetBudgetBuckets implements Initializable {
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
         Transactions.writeTransactions();
+        Buckets.writeTransactions();
         SceneHandling.sceneChanger(event, "login-screen.fxml", "Login Screen");
 
     }

@@ -128,7 +128,7 @@
                   <Image url="@../../../com.budgetapplication.images/tree-background.png" />
                </image>
             </ImageView>
-            <TableView fx:id="transactionTableView" layoutX="19.0" layoutY="109.0" prefHeight="634.0" prefWidth="621.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css">
+            <TableView fx:id="transactionTableView" layoutX="19.0" layoutY="109.0" prefHeight="597.0" prefWidth="621.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css">
               <columns>
                 <TableColumn fx:id="dateCol" prefWidth="101.0" text="Date" />
                 <TableColumn fx:id="descriptionCol" prefWidth="167.0" text="Description" />
@@ -147,6 +147,7 @@
                   <Font name="Freestyle Script" size="36.0" />
                </font>
             </Label>
+            <Button layoutX="445.0" layoutY="719.0" mnemonicParsing="false" onAction="#onActionRemoveTransaction" prefHeight="25.0" prefWidth="147.0" text="Remove Transaction" />
          </children>
       </Pane>
    </children>
