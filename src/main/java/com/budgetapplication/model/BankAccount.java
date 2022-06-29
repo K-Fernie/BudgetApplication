@@ -1,4 +1,5 @@
 package com.budgetapplication.model;
+import com.budgetapplication.controller.utils.Alerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -100,8 +101,11 @@ public class BankAccount {
      */
     public static void updateBucketAllocations(BucketType type, double percent) {
         for (Bucket bucket : allBuckets) {
-            if (bucket.getBucketType().equals(type)) {
+            if (bucket.getBucketType().equals(type) && percent >= 0) {
                 bucket.setPercentage(percent);
+            }
+            else {
+                Alerts.allocationInfoIncorrect();
             }
         }
     }

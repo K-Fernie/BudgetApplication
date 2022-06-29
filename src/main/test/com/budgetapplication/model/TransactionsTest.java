@@ -1,16 +1,11 @@
 package com.budgetapplication.model;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.junit.jupiter.api.Test;
-
+import org.testng.annotations.Test;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class TransactionsTest {
+public class TransactionsTest {
 
     @Test
     void readTransactions_validateRead() throws IOException {
@@ -19,7 +14,7 @@ class TransactionsTest {
 
     @Test
     void writeTransactions_validateRead() throws IOException {
-        ObservableList<Transaction> transaction = FXCollections.observableArrayList();
+        ObservableList<Transaction> transaction;
         Transactions.readTransactions();
         transaction = Transactions.getTransactions();
         System.out.println(transaction);
