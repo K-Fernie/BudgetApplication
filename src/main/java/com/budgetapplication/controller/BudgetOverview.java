@@ -1,6 +1,4 @@
 package com.budgetapplication.controller;
-
-
 import com.budgetapplication.controller.utils.SceneHandling;
 import com.budgetapplication.model.*;
 import javafx.event.ActionEvent;
@@ -9,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

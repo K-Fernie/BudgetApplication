@@ -159,6 +159,7 @@ public class SetBudgetBuckets implements Initializable {
                 //Do Nothing
             }
         });
+
         transportationTxt.textProperty().addListener((observable, oldValue, newValue) -> {
             try{
                 allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
@@ -167,6 +168,7 @@ public class SetBudgetBuckets implements Initializable {
                 //Do Nothing
             }
         });
+
         groceriesTxt.textProperty().addListener((observable, oldValue, newValue) -> {
             try{
                 allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
@@ -175,6 +177,7 @@ public class SetBudgetBuckets implements Initializable {
                 //Do Nothing
             }
         });
+
         utilitiesTxt.textProperty().addListener((observable, oldValue, newValue) -> {
             try{
                 allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
@@ -183,6 +186,7 @@ public class SetBudgetBuckets implements Initializable {
                 //Do Nothing
             }
         });
+
         subscriptionsTxt.textProperty().addListener((observable, oldValue, newValue) -> {
             try{
                 allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
@@ -191,6 +195,7 @@ public class SetBudgetBuckets implements Initializable {
                 //Do Nothing
             }
         });
+
         investmentsTxt.textProperty().addListener((observable, oldValue, newValue) -> {
             try{
                 allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
@@ -199,6 +204,7 @@ public class SetBudgetBuckets implements Initializable {
                 //Do Nothing
             }
         });
+
         medicalTxt.textProperty().addListener((observable, oldValue, newValue) -> {
             try{
                 allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
@@ -207,6 +213,7 @@ public class SetBudgetBuckets implements Initializable {
                 //Do Nothing
             }
         });
+
         internetTxt.textProperty().addListener((observable, oldValue, newValue) -> {
             try{
                 allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
@@ -215,6 +222,7 @@ public class SetBudgetBuckets implements Initializable {
                 //Do Nothing
             }
         });
+
         personalTxt.textProperty().addListener((observable, oldValue, newValue) -> {
             try{
                 allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
