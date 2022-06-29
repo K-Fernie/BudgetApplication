@@ -58,7 +58,7 @@ public class BudgetOverview implements Initializable {
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
         Transactions.writeTransactions();
-        Buckets.writeTransactions();
+        Buckets.writeBuckets();
         SceneHandling.sceneChanger(event, "login-screen.fxml", "Login Screen");
 
     }

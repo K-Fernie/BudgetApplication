@@ -18,6 +18,13 @@ import java.io.*;
 public class Buckets {
     private static ObservableList<Bucket> allocateBucket;
 
+    /**
+     * This method is used to read the bucket-info.csv file from the resource
+     * folder. It uses Buffer Reader with an Input file stream. The file data are
+     * separated by a comma delimiter. The input stream is stored into a
+     * static Observable list of buckets that will be used in Bank Account.
+     * @throws IOException
+     */
     public static synchronized void readBuckets() throws IOException {
         if (null == allocateBucket) {
             allocateBucket = FXCollections.observableArrayList();
@@ -31,7 +38,12 @@ public class Buckets {
         }
     }
 
-    public static synchronized void writeTransactions() throws IOException {
+    /**
+     * This method is used to write the changes in bucket allocations that came
+     * from the user interface. On logout, the bucket allocations will be updated.
+     * @throws IOException
+     */
+    public static synchronized void writeBuckets() throws IOException {
         String file = "src/main/resources/com.budgetapplication.file/bucket-info.csv";
         Writer output;
         try {
@@ -44,6 +56,11 @@ public class Buckets {
         }
     }
 
+    /**
+     * This method is used to pass the static observable list to a BankAccount class
+     * reference.
+     * @return allocateBucket - a list of buckets
+     */
     public static synchronized ObservableList<Bucket> getBuckets(){
         return allocateBucket;
     }

@@ -4,6 +4,15 @@ import javafx.collections.ObservableList;
 
 import java.time.LocalDate;
 
+/**
+ * Transaction is a storage class used to hold the information about the
+ * users income and expense transactions. This class is used for getting
+ * and setting field values that will be used mostly by the Bank Account
+ * class.
+ *
+ * @author Daniel, Kaitlyn, Kenneth
+ * @version 1.0
+ */
 public class Transaction {
 
     private LocalDate date;
@@ -20,7 +29,18 @@ public class Transaction {
 
     }
 
-
+    /**
+     * This constructor is the only constructor and it consists of 6 parameters. This
+     * constructor can be called when deleting/adding a new transaction in the user
+     * interface. It will also be called by the Transactions utility class when reading
+     * the associated csv file.
+     * @param date - the date of the transaction
+     * @param description - the description of the transaction
+     * @param bucketType - the type of budgeting bucket the transaction is associated with
+     * @param category - the type of transaction, income or expense
+     * @param amount - the dollar amount of the transaction
+     * @param bankId - the bank ID of the user associated with this transaction
+     */
     public Transaction(LocalDate date, String description, BucketType bucketType, Category category, double amount, int bankId) {
         setDate(date);
         setDescription(description);
