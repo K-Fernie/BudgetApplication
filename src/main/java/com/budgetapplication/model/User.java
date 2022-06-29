@@ -1,14 +1,25 @@
 package com.budgetapplication.model;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
+/**
+ * User is a storage class used to hold the information about the
+ * current active user. It will also be used to verify the user
+ * during login to gain access to the application.
+ *
+ * @author Daniel, Kaitlyn, Kenneth
+ * @version 1.0
+ */
 public class User {
     private String userLogin;
     private String password;
     private int bankId;
 
-    //constructor used to create a new user
+    /**
+     * This constructor is the only constructor and has 3
+     * parameters.
+     * @param bankId - the bank ID associated with the user
+     * @param userLogin - the user login name
+     * @param password - the user account password
+     */
     public User(int bankId, String userLogin, String password) {
         this.userLogin = userLogin;
         this.password = password;
