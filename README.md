@@ -38,7 +38,11 @@ Over the years I have refined my own budgeting tools via excel and I am interest
 
 ## First Use Instruction
 
-- 
+- Register a username/password
+- Set allocations first and foremost (this needs to add to 100% there will be an alert)
+- Enter transactions (either an income or expenditure)
+  - Do not enter any negative values, income will be positive and expenditure will be negative)
+- Happy Budgeting!
 
 ## Project Overview
 
