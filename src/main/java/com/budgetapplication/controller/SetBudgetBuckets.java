@@ -3,6 +3,7 @@ package com.budgetapplication.controller;
 import com.budgetapplication.controller.utils.Alerts;
 import com.budgetapplication.controller.utils.SceneHandling;
 import com.budgetapplication.model.*;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import javafx.beans.value.ChangeListener;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -65,6 +67,25 @@ public class SetBudgetBuckets implements Initializable {
 
     @FXML
     private TextField utilitiesTxt;
+
+    class TextChangeListener implements ChangeListener<String> {
+
+        private final TextField textField;
+
+        public TextChangeListener(TextField myTextField) {
+            this.textField = myTextField;
+        }
+
+        @Override
+        public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        }
+    }
 
     /**
      * txtFieldSum is used to calculate the sum of all the double values entered into the fields.
@@ -194,96 +215,33 @@ public class SetBudgetBuckets implements Initializable {
 
         allocationBtnLbl.setText(String.format(btnString, percentageTotal * 100));
         accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
+
         housingTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.HOUSING)));
+        housingTxt.textProperty().addListener(new TextChangeListener(housingTxt));
+
         transportationTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.TRANSPORTATION)));
+        transportationTxt.textProperty().addListener(new TextChangeListener(transportationTxt));
+
         groceriesTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.GROCERIES)));
+        groceriesTxt.textProperty().addListener(new TextChangeListener(groceriesTxt));
+
         utilitiesTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.UTILITIES)));
+        utilitiesTxt.textProperty().addListener(new TextChangeListener(utilitiesTxt));
+
         subscriptionsTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.SUBSCRIPTIONS)));
+        subscriptionsTxt.textProperty().addListener(new TextChangeListener(subscriptionsTxt));
+
         investmentsTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.INVESTMENTS)));
+        investmentsTxt.textProperty().addListener(new TextChangeListener(investmentsTxt));
+
         medicalTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.MEDICAL)));
+        medicalTxt.textProperty().addListener(new TextChangeListener(medicalTxt));
+
         internetTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.INTERNET)));
+        internetTxt.textProperty().addListener(new TextChangeListener(internetTxt));
+
         personalTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.PERSONAL)));
+        personalTxt.textProperty().addListener(new TextChangeListener(personalTxt));
 
-        //TODO figure out how to make a listener for multiple text boxes right now we do it the long way and ooof this is SO REDUNDANT
-        housingTxt.textProperty().addListener((observable, oldValue, newValue) -> {
-            try{
-                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
-            }
-            catch (NumberFormatException e){
-                //Do Nothing
-            }
-        });
-
-        transportationTxt.textProperty().addListener((observable, oldValue, newValue) -> {
-            try{
-                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
-            }
-            catch (NumberFormatException e){
-                //Do Nothing
-            }
-        });
-
-        groceriesTxt.textProperty().addListener((observable, oldValue, newValue) -> {
-            try{
-                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
-            }
-            catch (NumberFormatException e){
-                //Do Nothing
-            }
-        });
-
-        utilitiesTxt.textProperty().addListener((observable, oldValue, newValue) -> {
-            try{
-                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
-            }
-            catch (NumberFormatException e){
-                //Do Nothing
-            }
-        });
-
-        subscriptionsTxt.textProperty().addListener((observable, oldValue, newValue) -> {
-            try{
-                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
-            }
-            catch (NumberFormatException e){
-                //Do Nothing
-            }
-        });
-
-        investmentsTxt.textProperty().addListener((observable, oldValue, newValue) -> {
-            try{
-                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
-            }
-            catch (NumberFormatException e){
-                //Do Nothing
-            }
-        });
-
-        medicalTxt.textProperty().addListener((observable, oldValue, newValue) -> {
-            try{
-                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
-            }
-            catch (NumberFormatException e){
-                //Do Nothing
-            }
-        });
-
-        internetTxt.textProperty().addListener((observable, oldValue, newValue) -> {
-            try{
-                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
-            }
-            catch (NumberFormatException e){
-                //Do Nothing
-            }
-        });
-
-        personalTxt.textProperty().addListener((observable, oldValue, newValue) -> {
-            try{
-                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
-            }
-            catch (NumberFormatException e){
-                //Do Nothing
-            }
-        });
     }
 }
