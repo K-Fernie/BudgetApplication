@@ -15,6 +15,13 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+/**
+ * EnterTransaction is a controller class that extends Initializable to be used in conjunction with enter-transaction.fxml.
+ * It contains event methods used when a user clicks buttons on the screen.
+ *
+ * @author Daniel, Kaitlyn, Kenneth
+ * @version 1.0
+ */
 public class EnterTransaction implements Initializable {
     @FXML
     private Label accountTotalLbl;
@@ -40,6 +47,12 @@ public class EnterTransaction implements Initializable {
     @FXML
     private RadioButton incomeRad;
 
+    /**
+     * When this button is clicked the event obtains the information from each of the fields present.
+     * If the fields contain the appropriate data type the save succeeds and adds the newly created transaction to the
+     * static observable list in BankAccount. On a failed save it alerts the user that data is configured incorrectly or is missing
+     * @param event - Listens for a button click
+     */
     @FXML
     void onActionSaveBtn(ActionEvent event) {
         try {
@@ -49,9 +62,7 @@ public class EnterTransaction implements Initializable {
             BucketType category = categoryCB.getSelectionModel().getSelectedItem();
             String description = descriptionTxt.getText();
             double amount = Double.parseDouble(amountTxt.getText());
-
-            //TODO update bankId to make sense in the context of the active user
-            int bankId = 123;
+            int bankId = Users.getActiveUser().getBankId();
 
             Transaction toAdd = new Transaction(date, description, category, type, amount, bankId);
             BankAccount.addTransaction(toAdd);
@@ -68,16 +79,31 @@ public class EnterTransaction implements Initializable {
         amountTxt.clear();
     }
 
+    /**
+     * When this button is clicked, the event moves the scene from enter-transaction.fxml to budget-overview.fxml
+     * @param event - Listens for a button click event
+     */
     @FXML
     void onClickBudgetOverview(ActionEvent event) {
         SceneHandling.sceneChanger(event, "budget-overview.fxml", "Budget Overview");
     }
 
+    /**
+     * When this button is clicked, the event moves the scene from enter-transaction.fxml to enter-transaction.fxml
+     * @param event - Listens for a button click event
+     */
     @FXML
     void onClickEnterTransaction(ActionEvent event) {
         SceneHandling.sceneChanger(event, "enter-transaction.fxml", "Enter Transaction");
     }
 
+    /**
+     * When this button is clicked the Transactions and Buckets both utilize methods for the
+     * Bucket and Transactions stored in the client.
+     * The event moves the scene from budget-overview.fxml to login-screen.fxml.
+     * @param event - Listens for a button click event.
+     * @throws IOException - If data is not written correctly an IOException is thrown
+     */
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
         Transactions.writeTransactions();
@@ -85,16 +111,29 @@ public class EnterTransaction implements Initializable {
         SceneHandling.sceneChanger(event, "login-screen.fxml", "Login Screen");
     }
 
+    /**
+     * When this button is clicked, the event moves the scene from enter-transaction.fxml to set-budget-buckets.fxml
+     * @param event - Listens for a button click event
+     */
     @FXML
     void onClickSetAllocations(ActionEvent event) {
         SceneHandling.sceneChanger(event, "set-budget-buckets.fxml", "Set Allocations");
     }
 
+    /**
+     * When this button is clicked, the event moves the scene from enter-transaction.fxml to transaction-overview.fxml
+     * @param event - Listens for a button click event
+     */
     @FXML
     void onClickTransactionPage(ActionEvent event) {
         SceneHandling.sceneChanger(event, "transaction-overview.fxml", "Transaction Overview");
     }
 
+    /**
+     * This method is associated with the expenditure radio button. When selected it adds all BucketTypes associated with
+     * expenditure to the observable array list contained in the categoryCB combobox.
+     * @param event - Listens for a radio button selection
+     */
     @FXML
     void onSelectedExpenditure(ActionEvent event) {
         ObservableList<BucketType> cbExpenditure = FXCollections.observableArrayList();
@@ -111,6 +150,11 @@ public class EnterTransaction implements Initializable {
 
     }
 
+    /**
+     * This method is associated with the expenditure radio button. When selected it adds all BucketTypes associated with
+     * income to the observable array list contained in the categoryCB combobox.
+     * @param event - Listens for a radio button selection
+     */
     @FXML
     void onSelectedIncome(ActionEvent event) {
         ObservableList<BucketType> cbIncome = FXCollections.observableArrayList();
@@ -120,6 +164,10 @@ public class EnterTransaction implements Initializable {
 
     }
 
+    /**
+     * The initialize method is inherited from the Initializable class. This method is used to set the account total label,
+     * and categoryCB combobox with the values to be shown to and used by the user respectively.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));

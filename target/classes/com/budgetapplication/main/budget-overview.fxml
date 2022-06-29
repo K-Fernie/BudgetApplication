@@ -131,7 +131,7 @@
                   <Image url="@../../../com.budgetapplication.images/tree-background.png" />
                </image>
             </ImageView>
-            <Button alignment="BOTTOM_CENTER" layoutX="38.0" layoutY="64.0" mnemonicParsing="false" onAction="#onClickHousingBucket" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
+            <Button alignment="BOTTOM_CENTER" layoutX="38.0" layoutY="64.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -163,42 +163,42 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Button alignment="BOTTOM_CENTER" layoutX="248.0" layoutY="64.0" mnemonicParsing="false" onAction="#onClickTransportationBucket" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
+            <Button alignment="BOTTOM_CENTER" layoutX="248.0" layoutY="64.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button alignment="BOTTOM_CENTER" layoutX="451.0" layoutY="64.0" mnemonicParsing="false" onAction="#onClickGroceriesBucket" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
+            <Button alignment="BOTTOM_CENTER" layoutX="451.0" layoutY="64.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button alignment="BOTTOM_CENTER" layoutX="37.0" layoutY="304.0" mnemonicParsing="false" onAction="#onClickUtilitiesBucket" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
+            <Button alignment="BOTTOM_CENTER" layoutX="37.0" layoutY="304.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button alignment="BOTTOM_CENTER" layoutX="248.0" layoutY="304.0" mnemonicParsing="false" onAction="#onclickSubscriptionsBucket" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
+            <Button alignment="BOTTOM_CENTER" layoutX="248.0" layoutY="304.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button alignment="BOTTOM_CENTER" layoutX="451.0" layoutY="304.0" mnemonicParsing="false" onAction="#onClickInvestmentsBucket" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
+            <Button alignment="BOTTOM_CENTER" layoutX="451.0" layoutY="304.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button alignment="BOTTOM_CENTER" layoutX="37.0" layoutY="555.0" mnemonicParsing="false" onAction="#onClickMedicalBucket" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
+            <Button alignment="BOTTOM_CENTER" layoutX="37.0" layoutY="555.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button alignment="BOTTOM_CENTER" layoutX="248.0" layoutY="555.0" mnemonicParsing="false" onAction="#onClickMedicalBucket" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
+            <Button alignment="BOTTOM_CENTER" layoutX="248.0" layoutY="555.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button alignment="BOTTOM_CENTER" layoutX="451.0" layoutY="555.0" mnemonicParsing="false" onAction="#onClickPersonalBucket" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
+            <Button alignment="BOTTOM_CENTER" layoutX="451.0" layoutY="555.0" mnemonicParsing="false" opacity="0.53" prefHeight="151.0" prefWidth="166.0" styleClass="button2" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
