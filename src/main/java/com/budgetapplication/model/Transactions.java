@@ -30,13 +30,21 @@ public class Transactions {
         if (null == transaction) {
             transaction = FXCollections.observableArrayList();
             String file = "src/main/resources/com.budgetapplication.file/transaction-info.csv";
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] tokens = line.split(",");
-                transaction.add(new Transaction(LocalDate.parse(tokens[0]), tokens[1],
-                        Enum.valueOf(BucketType.class, tokens[2]), Enum.valueOf(Transaction.Category.class, tokens[3]),
-                        Double.parseDouble(tokens[4]), Integer.parseInt(tokens[5])));
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    String[] tokens = line.split(",");
+                    transaction.add(new Transaction(LocalDate.parse(tokens[0]), tokens[1],
+                            Enum.valueOf(BucketType.class, tokens[2].toUpperCase()), Enum.valueOf(Transaction.Category.class, tokens[3].toUpperCase()),
+                            Double.parseDouble(tokens[4]), Integer.parseInt(tokens[5])));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new RuntimeException("There was an issue reading the file.");
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                throw new RuntimeException("The formatting for the wrapper classes were not done properly.");
             }
             transactionSize = transaction.size();
         }
