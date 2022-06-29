@@ -129,12 +129,8 @@ public class TransactionOverview implements Initializable {
                     return true;
                 }
                 String lowerCaseFilter = newValue.toLowerCase();
-                if(transaction.getCategory().toString().toLowerCase().contains(lowerCaseFilter))
-                {
-                    return true;
-                }
-                else
-                    return false;
+                return transaction.getCategory().toString().toLowerCase().contains(lowerCaseFilter) ||
+                        transaction.getDescription().toLowerCase().contains(lowerCaseFilter);
             });
         });
 

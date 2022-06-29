@@ -58,6 +58,16 @@ public class SetBudgetBuckets implements Initializable {
     @FXML
     private TextField utilitiesTxt;
 
+    private double txtFieldSum(){
+        double sum;
+
+        sum = Double.parseDouble(housingTxt.getText()) + Double.parseDouble(transportationTxt.getText()) + Double.parseDouble(groceriesTxt.getText())
+                + Double.parseDouble(utilitiesTxt.getText()) + Double.parseDouble(subscriptionsTxt.getText()) + Double.parseDouble(investmentsTxt.getText()) +
+                Double.parseDouble(medicalTxt.getText()) + Double.parseDouble(internetTxt.getText()) + Double.parseDouble(personalTxt.getText());
+
+        return sum;
+    }
+
     @FXML
     void onClickAllocationHelpTextBtn(ActionEvent event) {
         Alerts.allocationInfo();
@@ -107,7 +117,7 @@ public class SetBudgetBuckets implements Initializable {
 
     @FXML
     void onClickSaveBucketUpdates(ActionEvent event) {
-        if (BankAccount.isAllocated()) {
+        if (txtFieldSum() == 100) {
             BankAccount.updateBucketAllocations(BucketType.HOUSING, Double.parseDouble(housingTxt.getText()) / 100.0);
             BankAccount.updateBucketAllocations(BucketType.TRANSPORTATION, Double.parseDouble(transportationTxt.getText()) / 100.0);
             BankAccount.updateBucketAllocations(BucketType.GROCERIES,Double.parseDouble(groceriesTxt.getText()) / 100.0);
@@ -140,6 +150,78 @@ public class SetBudgetBuckets implements Initializable {
         internetTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.INTERNET)));
         personalTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.PERSONAL)));
 
-
+        //TODO figure out how to make a listener for multiple text boxes right now we do it the long way and ooof this is SO REDUNDANT
+        housingTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
+        transportationTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
+        groceriesTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
+        utilitiesTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
+        subscriptionsTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
+        investmentsTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
+        medicalTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
+        internetTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
+        personalTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
     }
 }
