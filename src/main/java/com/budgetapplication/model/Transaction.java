@@ -23,6 +23,10 @@ public class Transaction {
     private int bankId;
     private static ObservableList<Transaction> transactions;
 
+    /**
+     * Category inner Enum class used to define the type of transaction.
+     * The transactions can be either income, or expense.
+     */
     public enum Category {
 
         INCOME, EXPENDITURE
