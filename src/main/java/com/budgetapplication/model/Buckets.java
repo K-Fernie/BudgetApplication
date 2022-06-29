@@ -29,11 +29,19 @@ public class Buckets {
         if (null == allocateBucket) {
             allocateBucket = FXCollections.observableArrayList();
             String file = "src/main/resources/com.budgetapplication.file/bucket-info.csv";
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] tokens = line.split(",");
-                allocateBucket.add(new Bucket(Enum.valueOf(BucketType.class, tokens[0]), Double.parseDouble(tokens[1]), Double.parseDouble(tokens[2])));
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    String[] tokens = line.split(",");
+                    allocateBucket.add(new Bucket(Enum.valueOf(BucketType.class, tokens[0]), Double.parseDouble(tokens[1]), Double.parseDouble(tokens[2])));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new RuntimeException("There was an issue reading the file.");
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                throw new RuntimeException("The formatting for the wrapper classes were not done properly.");
             }
         }
     }
