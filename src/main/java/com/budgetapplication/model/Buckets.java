@@ -5,6 +5,16 @@ import javafx.collections.ObservableList;
 
 import java.io.*;
 
+/**
+ * Buckets is a utility class that's used to read and write into the
+ * associated csv files. It contains a static observable list that holds
+ * all the bucket types and their allocations for the active user. The
+ * list is passed to the Bank Account class to be used for the user
+ * interface.
+ *
+ * @author Daniel, Kaitlyn, Kenneth
+ * @version 1.0
+ */
 public class Buckets {
     private static ObservableList<Bucket> allocateBucket;
 
