@@ -21,13 +21,11 @@ public class Transaction {
     }
 
 
-    // add bankId in constructor
-    //TODO fix the Enum<BucketType> declaration to just say BucketType
-    public Transaction(LocalDate date, String description, BucketType category, Category type, double amount, int bankId) {
+    public Transaction(LocalDate date, String description, BucketType bucketType, Category category, double amount, int bankId) {
         setDate(date);
         setDescription(description);
-        setCategory(category);
-        setType(type);
+        setCategory(bucketType);
+        setType(category);
         setAmount(amount);
         setBankId(bankId);
     }
@@ -85,7 +83,7 @@ public class Transaction {
     }
 
     public void setTransactions(ObservableList<Transaction> transactions) {
-        this.transactions = transactions;
+        Transaction.transactions = transactions;
     }
 
     @Override

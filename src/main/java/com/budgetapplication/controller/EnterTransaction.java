@@ -49,12 +49,13 @@ public class EnterTransaction implements Initializable {
             BucketType category = categoryCB.getSelectionModel().getSelectedItem();
             String description = descriptionTxt.getText();
             double amount = Double.parseDouble(amountTxt.getText());
+
             //TODO update bankId to make sense in the context of the active user
             int bankId = 123;
 
             Transaction toAdd = new Transaction(date, description, category, type, amount, bankId);
             BankAccount.addTransaction(toAdd);
-            BankAccount.updateBuckets(toAdd);
+            BankAccount.addTransactionUpdateBuckets(toAdd);
             accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
 
         } catch (Exception e) {

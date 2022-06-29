@@ -1,31 +1,23 @@
 package com.budgetapplication.controller;
-
-
 import com.budgetapplication.controller.utils.SceneHandling;
 import com.budgetapplication.model.*;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
-import java.util.Collections;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 
-import static com.budgetapplication.model.BankAccount.findLabelValue;
+import static com.budgetapplication.model.BankAccount.findBucketValue;
 
 
 public class BudgetOverview implements Initializable {
 
     static Parent scene;
     static Stage stage;
-
 
     @FXML
     private Label accountTotalLbl;
@@ -126,15 +118,17 @@ public class BudgetOverview implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        housingLbl.setText("Housing: $" + findLabelValue(BucketType.HOUSING));
-        transportLbl.setText("Transportation: $" + findLabelValue(BucketType.TRANSPORTATION));
-        groceriesLbl.setText("Groceries: $" + findLabelValue(BucketType.GROCERIES));
-        utilitiesLbl.setText("Utilities: $" + findLabelValue(BucketType.UTILITIES));
-        subscriptionsLbl.setText("Subscriptions: $" + findLabelValue(BucketType.SUBSCRIPTIONS));
-        investmentsLbl.setText("Investements: $" + findLabelValue(BucketType.INVESTMENTS));
-        medicalLbl.setText("Medical: $" + findLabelValue(BucketType.MEDICAL));
-        internetLbl.setText("Internet: $" + findLabelValue(BucketType.INTERNET));
-        personalLbl.setText("Personal: $" + findLabelValue(BucketType.PERSONAL));
+        housingLbl.setText("Housing: $" + findBucketValue(BucketType.HOUSING));
+        transportLbl.setText("Transportation: $" + findBucketValue(BucketType.TRANSPORTATION));
+        groceriesLbl.setText("Groceries: $" + findBucketValue(BucketType.GROCERIES));
+        utilitiesLbl.setText("Utilities: $" + findBucketValue(BucketType.UTILITIES));
+        subscriptionsLbl.setText("Subscriptions: $" + findBucketValue(BucketType.SUBSCRIPTIONS));
+        investmentsLbl.setText("Investements: $" + findBucketValue(BucketType.INVESTMENTS));
+        medicalLbl.setText("Medical: $" + findBucketValue(BucketType.MEDICAL));
+        internetLbl.setText("Internet: $" + findBucketValue(BucketType.INTERNET));
+        personalLbl.setText("Personal: $" + findBucketValue(BucketType.PERSONAL));
         accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
+
+
     }
 }

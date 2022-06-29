@@ -92,16 +92,13 @@
                         <Insets top="100.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="buttonLbl" mnemonicParsing="false" onAction="#onClickAllocationHelpTextBtn" prefHeight="76.0" prefWidth="254.0" styleClass="button4" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" text="Allocation Running Total: " textFill="WHITE">
+                  <Button fx:id="allocationBtnLbl" mnemonicParsing="false" onAction="#onClickAllocationHelpTextBtn" prefHeight="76.0" prefWidth="254.0" styleClass="button4" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" text="Allocation Running Total: " textFill="WHITE">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                      <font>
                         <Font size="14.0" />
                      </font>
-                     <padding>
-                        <Insets right="50.0" />
-                     </padding>
                   </Button>
                </children>
             </VBox>
@@ -175,7 +172,7 @@
                   <Image url="@../../../com.budgetapplication.images/housing.png" />
                </image>
             </ImageView>
-            <Label alignment="BOTTOM_LEFT" layoutX="46.0" layoutY="174.0" prefHeight="28.0" prefWidth="124.0" text="Housing: " textFill="WHITE">
+            <Label alignment="BOTTOM_LEFT" layoutX="41.0" layoutY="174.0" prefHeight="28.0" prefWidth="146.0" text="Housing:                   %" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -261,11 +258,11 @@
                   </LinearGradient>
                </fill>
             </Circle>
-            <Label layoutX="259.0" layoutY="168.0" prefHeight="50.0" prefWidth="138.0" text="Transportation:" textFill="WHITE">
+            <Label layoutX="251.0" layoutY="168.0" prefHeight="50.0" prefWidth="166.0" text="Transportation:                  %" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <Label layoutX="466.0" layoutY="179.0" prefHeight="28.0" prefWidth="124.0" text="Groceries: " textFill="WHITE">
+            <Label layoutX="465.0" layoutY="179.0" prefHeight="28.0" prefWidth="138.0" text="Groceries:                % " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -393,32 +390,32 @@
                   <Image url="@../../../com.budgetapplication.images/utilities.png" />
                </image>
             </ImageView>
-            <Label layoutX="52.0" layoutY="419.0" prefHeight="28.0" prefWidth="124.0" text="Utilities: " textFill="WHITE">
+            <Label layoutX="52.0" layoutY="419.0" prefHeight="28.0" prefWidth="124.0" text="Utilities:                %" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="259.0" layoutY="419.0" prefHeight="28.0" prefWidth="138.0" text="Subscriptions: " textFill="WHITE">
+            <Label layoutX="255.0" layoutY="419.0" prefHeight="28.0" prefWidth="157.0" text="Subscriptions:                %" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="463.0" layoutY="419.0" prefHeight="28.0" prefWidth="138.0" text="Investments: " textFill="WHITE">
+            <Label layoutX="468.0" layoutY="419.0" prefHeight="28.0" prefWidth="157.0" text="Investments:               %" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="463.0" layoutY="672.0" prefHeight="28.0" prefWidth="138.0" text="Personal: " textFill="WHITE">
+            <Label layoutX="463.0" layoutY="672.0" prefHeight="28.0" prefWidth="138.0" text="Personal:                  %" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="262.0" layoutY="672.0" prefHeight="28.0" prefWidth="138.0" text="Internet: " textFill="WHITE">
+            <Label layoutX="262.0" layoutY="672.0" prefHeight="28.0" prefWidth="138.0" text="Internet:                 %" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="51.0" layoutY="672.0" prefHeight="28.0" prefWidth="138.0" text="Medical: " textFill="WHITE">
+            <Label layoutX="51.0" layoutY="672.0" prefHeight="28.0" prefWidth="138.0" text="Medical:                 % " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -448,15 +445,15 @@
                   <Image url="@../../../com.budgetapplication.images/personal.png" />
                </image>
             </ImageView>
-            <TextField fx:id="housingTxt" layoutX="108.0" layoutY="179.0" prefHeight="25.0" prefWidth="57.0" styleClass="text-field" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
-            <TextField fx:id="transportationTxt" layoutX="348.0" layoutY="179.0" prefHeight="25.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
-            <TextField fx:id="groceriesTxt" layoutX="532.0" layoutY="179.0" prefHeight="25.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
-            <TextField fx:id="utilitiesTxt" layoutX="108.0" layoutY="419.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
-            <TextField fx:id="subscriptionsTxt" layoutX="350.0" layoutY="419.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
-            <TextField fx:id="investmentsTxt" layoutX="546.0" layoutY="419.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
-            <TextField fx:id="medicalTxt" layoutX="108.0" layoutY="672.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
-            <TextField fx:id="internetTxt" layoutX="320.0" layoutY="672.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
-            <TextField fx:id="personalTxt" layoutX="528.0" layoutY="672.0" prefHeight="22.0" prefWidth="57.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
+            <TextField fx:id="housingTxt" layoutX="108.0" layoutY="179.0" prefHeight="27.0" prefWidth="50.0" styleClass="text-field" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
+            <TextField fx:id="transportationTxt" layoutX="343.0" layoutY="180.0" prefHeight="27.0" prefWidth="50.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
+            <TextField fx:id="groceriesTxt" layoutX="532.0" layoutY="179.0" prefHeight="27.0" prefWidth="50.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
+            <TextField fx:id="utilitiesTxt" layoutX="108.0" layoutY="419.0" prefHeight="27.0" prefWidth="50.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
+            <TextField fx:id="subscriptionsTxt" layoutX="345.0" layoutY="419.0" prefHeight="27.0" prefWidth="50.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
+            <TextField fx:id="investmentsTxt" layoutX="546.0" layoutY="419.0" prefHeight="27.0" prefWidth="50.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
+            <TextField fx:id="medicalTxt" layoutX="108.0" layoutY="672.0" prefHeight="27.0" prefWidth="50.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
+            <TextField fx:id="internetTxt" layoutX="320.0" layoutY="672.0" prefHeight="27.0" prefWidth="50.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
+            <TextField fx:id="personalTxt" layoutX="528.0" layoutY="672.0" prefHeight="27.0" prefWidth="50.0" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" />
             <Label layoutX="202.0" layoutY="6.0" text="Enter Allocation Amounts" textFill="WHITE">
                <font>
                   <Font name="Freestyle Script" size="36.0" />

@@ -88,6 +88,7 @@ public class TransactionOverview implements Initializable {
     void onActionRemoveTransaction(ActionEvent event) {
         Transaction transaction = transactionTableView.getSelectionModel().getSelectedItem();
         allTransactions.remove(transaction);
+        BankAccount.removeTransactionUpdateBuckets(transaction);
         BankAccount.setAccountTotal();
         accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
     }
@@ -128,12 +129,8 @@ public class TransactionOverview implements Initializable {
                     return true;
                 }
                 String lowerCaseFilter = newValue.toLowerCase();
-                if(transaction.getCategory().toString().toLowerCase().contains(lowerCaseFilter))
-                {
-                    return true;
-                }
-                else
-                    return false;
+                return transaction.getCategory().toString().toLowerCase().contains(lowerCaseFilter) ||
+                        transaction.getDescription().toLowerCase().contains(lowerCaseFilter);
             });
         });
 
@@ -142,6 +139,6 @@ public class TransactionOverview implements Initializable {
         transactionTableView.setItems(sortedTransaction);
         transactionTableView.setPlaceholder(new Label("No transactions were found"));
     }
-        //TODO implement search function to show an updated list for category/type
+
 }
 

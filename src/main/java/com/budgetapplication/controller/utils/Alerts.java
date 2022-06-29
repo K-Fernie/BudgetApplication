@@ -28,7 +28,7 @@ public class Alerts {
     public static void missingInputData(){
         alertInfo.setTitle("Missing input data");
         alertInfo.setHeaderText("Missing Input");
-        alertInfo.setContentText("Please ensure all fields are completed before saving");
+        alertInfo.setContentText("Please ensure all fields are completed with correct values before saving");
         alertInfo.showAndWait();
     }
 

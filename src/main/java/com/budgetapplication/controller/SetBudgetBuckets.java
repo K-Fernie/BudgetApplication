@@ -2,13 +2,11 @@ package com.budgetapplication.controller;
 
 import com.budgetapplication.controller.utils.Alerts;
 import com.budgetapplication.controller.utils.SceneHandling;
-import com.budgetapplication.model.BankAccount;
-import com.budgetapplication.model.BucketType;
-import com.budgetapplication.model.Buckets;
-import com.budgetapplication.model.Transactions;
+import com.budgetapplication.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -19,6 +17,12 @@ import java.util.ResourceBundle;
 import static com.budgetapplication.model.BankAccount.findPercentageValue;
 
 public class SetBudgetBuckets implements Initializable {
+
+    private double percentageTotal;
+    private final String btnString = "Allocation Running Total: %s%%";
+
+    @FXML
+    private Button allocationBtnLbl;
 
     @FXML
     private TextField groceriesTxt;
@@ -53,6 +57,16 @@ public class SetBudgetBuckets implements Initializable {
 
     @FXML
     private TextField utilitiesTxt;
+
+    private double txtFieldSum(){
+        double sum;
+
+        sum = Double.parseDouble(housingTxt.getText()) + Double.parseDouble(transportationTxt.getText()) + Double.parseDouble(groceriesTxt.getText())
+                + Double.parseDouble(utilitiesTxt.getText()) + Double.parseDouble(subscriptionsTxt.getText()) + Double.parseDouble(investmentsTxt.getText()) +
+                Double.parseDouble(medicalTxt.getText()) + Double.parseDouble(internetTxt.getText()) + Double.parseDouble(personalTxt.getText());
+
+        return sum;
+    }
 
     @FXML
     void onClickAllocationHelpTextBtn(ActionEvent event) {
@@ -103,31 +117,119 @@ public class SetBudgetBuckets implements Initializable {
 
     @FXML
     void onClickSaveBucketUpdates(ActionEvent event) {
-        BankAccount.updateBucketAllocations(BucketType.HOUSING, Double.parseDouble(housingTxt.getText()) / 100.0);
-        BankAccount.updateBucketAllocations(BucketType.TRANSPORTATION, Double.parseDouble(transportationTxt.getText()) / 100.0);
-        BankAccount.updateBucketAllocations(BucketType.GROCERIES,Double.parseDouble(groceriesTxt.getText()) / 100.0);
-        BankAccount.updateBucketAllocations(BucketType.UTILITIES, Double.parseDouble(utilitiesTxt.getText()) / 100.0);
-        BankAccount.updateBucketAllocations(BucketType.SUBSCRIPTIONS, Double.parseDouble(subscriptionsTxt.getText()) / 100.0);
-        BankAccount.updateBucketAllocations(BucketType.INVESTMENTS, Double.parseDouble(investmentsTxt.getText()) / 100.0);
-        BankAccount.updateBucketAllocations(BucketType.MEDICAL, Double.parseDouble(medicalTxt.getText()) / 100.0);
-        BankAccount.updateBucketAllocations(BucketType.INTERNET, Double.parseDouble(internetTxt.getText()) / 100.0);
-        BankAccount.updateBucketAllocations(BucketType.PERSONAL, Double.parseDouble(personalTxt.getText()) / 100.0);
+        if (txtFieldSum() == 100) {
+            BankAccount.updateBucketAllocations(BucketType.HOUSING, Double.parseDouble(housingTxt.getText()) / 100.0);
+            BankAccount.updateBucketAllocations(BucketType.TRANSPORTATION, Double.parseDouble(transportationTxt.getText()) / 100.0);
+            BankAccount.updateBucketAllocations(BucketType.GROCERIES,Double.parseDouble(groceriesTxt.getText()) / 100.0);
+            BankAccount.updateBucketAllocations(BucketType.UTILITIES, Double.parseDouble(utilitiesTxt.getText()) / 100.0);
+            BankAccount.updateBucketAllocations(BucketType.SUBSCRIPTIONS, Double.parseDouble(subscriptionsTxt.getText()) / 100.0);
+            BankAccount.updateBucketAllocations(BucketType.INVESTMENTS, Double.parseDouble(investmentsTxt.getText()) / 100.0);
+            BankAccount.updateBucketAllocations(BucketType.MEDICAL, Double.parseDouble(medicalTxt.getText()) / 100.0);
+            BankAccount.updateBucketAllocations(BucketType.INTERNET, Double.parseDouble(internetTxt.getText()) / 100.0);
+            BankAccount.updateBucketAllocations(BucketType.PERSONAL, Double.parseDouble(personalTxt.getText()) / 100.0);
+        } else {
+            Alerts.allocationInfoIncorrect();
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        for(Bucket bucket: BankAccount.getAllBuckets()){
+            percentageTotal += bucket.getPercentage();
+        }
+
+        allocationBtnLbl.setText(String.format(btnString, percentageTotal * 100));
         accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
+        housingTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.HOUSING)));
+        transportationTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.TRANSPORTATION)));
+        groceriesTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.GROCERIES)));
+        utilitiesTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.UTILITIES)));
+        subscriptionsTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.SUBSCRIPTIONS)));
+        investmentsTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.INVESTMENTS)));
+        medicalTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.MEDICAL)));
+        internetTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.INTERNET)));
+        personalTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.PERSONAL)));
 
-        //TODO, in findPercentageValue convert from decimal to number so that it displays better
-        housingTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.HOUSING)));
-        transportationTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.TRANSPORTATION)));
-        groceriesTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.GROCERIES)));
-        utilitiesTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.UTILITIES)));
-        subscriptionsTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.SUBSCRIPTIONS)));
-        investmentsTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.INVESTMENTS)));
-        medicalTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.MEDICAL)));
-        internetTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.INTERNET)));
-        personalTxt.setText(String.valueOf(100.0 * findPercentageValue(BucketType.PERSONAL)));
+        //TODO figure out how to make a listener for multiple text boxes right now we do it the long way and ooof this is SO REDUNDANT
+        housingTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
 
+        transportationTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
+
+        groceriesTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
+
+        utilitiesTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
+
+        subscriptionsTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
+
+        investmentsTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
+
+        medicalTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
+
+        internetTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
+
+        personalTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            }
+            catch (NumberFormatException e){
+                //Do Nothing
+            }
+        });
     }
 }
