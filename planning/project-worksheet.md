@@ -2,7 +2,13 @@
 
 ## Project Description
 
-- 
+This application is meant to model the envelope system as presented by Dave Ramsey's financial solutions. These envelopes
+are represented in the application as buckets. 
+Each bucket in the display represents an area of the users finances that they need to plan for and allocate funds to. 
+These allocations are made through determining the percentage of the user's income that they plan on allocating. For example
+it's suggested that the average american should have a mortgage or rent that is 30% of their income. If this was the case
+the user would use an allocation screen to set this value so as they input their income values the buckets show how much they 
+have saved for their mortgage.
 
 ## UML
 
@@ -51,7 +57,7 @@ Enter Brief Description here
 
 | Component        | Priority | Estimated Time | Time Invested |
 |------------------|:--------:|:--------------:|:-------------:|
-| Modeling         |    H     |                |               |
+| Modeling         |    H     |      24H       |      29H      |
 | View Controllers |    H     |                |               |
 | UI Development   |    H     |      15H       |      20H      |
 | Total(MVP)       |    H     |                |               |
