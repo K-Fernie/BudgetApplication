@@ -1,12 +1,10 @@
 package com.budgetapplication.model;
 
-import org.junit.jupiter.api.Test;
-
+import org.testng.annotations.Test;
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
 
-class UsersTest {
+public class UsersTest {
     @Test
     void readUsers_validateFile() throws IOException {
         Users.readUsers();

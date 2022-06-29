@@ -71,4 +71,8 @@ public class Users {
 
     }
 
+    public static synchronized User getActiveUser(){
+        return activeUser;
+    }
+
 }
