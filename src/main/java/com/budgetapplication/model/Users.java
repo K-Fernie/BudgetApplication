@@ -3,8 +3,6 @@ package com.budgetapplication.model;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
 
 /**
  * Users is a utility class that's used to read and write into the
@@ -48,7 +46,6 @@ public class Users {
      * @return true/false - users stream will determine if the password and username exists in combo.
      */
     public static synchronized boolean find(String username, String password) {
-        boolean findUser = false;
         if (null == users) {
             throw new IllegalStateException("user list is not initialised");
         }
