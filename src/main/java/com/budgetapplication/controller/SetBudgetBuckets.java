@@ -78,10 +78,12 @@ public class SetBudgetBuckets implements Initializable {
 
         @Override
         public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            try{
-                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            if(!newValue.matches("\\d*")){
+                textField.setText(newValue.replaceAll("[^\\d]", ""));
             }
-            catch (NumberFormatException e){
+            try {
+                allocationBtnLbl.setText(String.format(btnString, txtFieldSum()));
+            } catch (NumberFormatException e) {
                 //Do Nothing
             }
         }
@@ -92,10 +94,10 @@ public class SetBudgetBuckets implements Initializable {
      * @return - returns the sum value
      */
     private double txtFieldSum(){
-
-        return Double.parseDouble(housingTxt.getText()) + Double.parseDouble(transportationTxt.getText()) + Double.parseDouble(groceriesTxt.getText())
+        double sum =  Double.parseDouble(housingTxt.getText()) + Double.parseDouble(transportationTxt.getText()) + Double.parseDouble(groceriesTxt.getText())
                 + Double.parseDouble(utilitiesTxt.getText()) + Double.parseDouble(subscriptionsTxt.getText()) + Double.parseDouble(investmentsTxt.getText()) +
                 Double.parseDouble(medicalTxt.getText()) + Double.parseDouble(internetTxt.getText()) + Double.parseDouble(personalTxt.getText());
+        return sum;
 
     }
 
@@ -186,19 +188,19 @@ public class SetBudgetBuckets implements Initializable {
      */
     @FXML
     void onClickSaveBucketUpdates(ActionEvent event) {
-        if (txtFieldSum() == 100) {
-            BankAccount.updateBucketAllocations(BucketType.HOUSING, Double.parseDouble(housingTxt.getText()) / 100.0);
-            BankAccount.updateBucketAllocations(BucketType.TRANSPORTATION, Double.parseDouble(transportationTxt.getText()) / 100.0);
-            BankAccount.updateBucketAllocations(BucketType.GROCERIES,Double.parseDouble(groceriesTxt.getText()) / 100.0);
-            BankAccount.updateBucketAllocations(BucketType.UTILITIES, Double.parseDouble(utilitiesTxt.getText()) / 100.0);
-            BankAccount.updateBucketAllocations(BucketType.SUBSCRIPTIONS, Double.parseDouble(subscriptionsTxt.getText()) / 100.0);
-            BankAccount.updateBucketAllocations(BucketType.INVESTMENTS, Double.parseDouble(investmentsTxt.getText()) / 100.0);
-            BankAccount.updateBucketAllocations(BucketType.MEDICAL, Double.parseDouble(medicalTxt.getText()) / 100.0);
-            BankAccount.updateBucketAllocations(BucketType.INTERNET, Double.parseDouble(internetTxt.getText()) / 100.0);
-            BankAccount.updateBucketAllocations(BucketType.PERSONAL, Double.parseDouble(personalTxt.getText()) / 100.0);
-        } else {
-            Alerts.allocationInfoIncorrect();
-        }
+            if (txtFieldSum() == 100.0) {
+                BankAccount.updateBucketAllocations(BucketType.HOUSING, Double.parseDouble(housingTxt.getText()) / 100.0);
+                BankAccount.updateBucketAllocations(BucketType.TRANSPORTATION, Double.parseDouble(transportationTxt.getText()) / 100.0);
+                BankAccount.updateBucketAllocations(BucketType.GROCERIES, Double.parseDouble(groceriesTxt.getText()) / 100.0);
+                BankAccount.updateBucketAllocations(BucketType.UTILITIES, Double.parseDouble(utilitiesTxt.getText()) / 100.0);
+                BankAccount.updateBucketAllocations(BucketType.SUBSCRIPTIONS, Double.parseDouble(subscriptionsTxt.getText()) / 100.0);
+                BankAccount.updateBucketAllocations(BucketType.INVESTMENTS, Double.parseDouble(investmentsTxt.getText()) / 100.0);
+                BankAccount.updateBucketAllocations(BucketType.MEDICAL, Double.parseDouble(medicalTxt.getText()) / 100.0);
+                BankAccount.updateBucketAllocations(BucketType.INTERNET, Double.parseDouble(internetTxt.getText()) / 100.0);
+                BankAccount.updateBucketAllocations(BucketType.PERSONAL, Double.parseDouble(personalTxt.getText()) / 100.0);
+            } else {
+                Alerts.allocationInfoIncorrect();
+            }
     }
 
     /**

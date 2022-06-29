@@ -101,11 +101,8 @@ public class BankAccount {
      */
     public static void updateBucketAllocations(BucketType type, double percent) {
         for (Bucket bucket : allBuckets) {
-            if (bucket.getBucketType().equals(type) && percent >= 0) {
+            if (bucket.getBucketType().equals(type)) {
                 bucket.setPercentage(percent);
-            }
-            else {
-                Alerts.allocationInfoIncorrect();
             }
         }
     }
