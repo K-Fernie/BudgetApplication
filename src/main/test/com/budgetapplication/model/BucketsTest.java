@@ -1,10 +1,7 @@
 package com.budgetapplication.model;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.io.IOException;
-
 import static org.testng.Assert.*;
 
 public class BucketsTest {
@@ -17,6 +14,11 @@ public class BucketsTest {
         BankAccount.setAllBuckets(Buckets.getBuckets());
 
         assertEquals(0.30, Buckets.getBuckets().get(1));
+
+    }
+
+    @Test
+    void writeBuckets_validation(){
 
     }
 }
