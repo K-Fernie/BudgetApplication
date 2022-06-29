@@ -38,10 +38,10 @@ public class Buckets {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-                throw new RuntimeException("There was an issue reading the file.");
+                throw new IOException("There was an issue reading the file.");
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                throw new RuntimeException("The formatting for the wrapper classes were not done properly.");
+                throw new NumberFormatException("The formatting for the wrapper classes were not done properly.");
             }
         }
     }
@@ -61,6 +61,8 @@ public class Buckets {
             }
             output.close();
         } catch (IOException e) {
+            e.printStackTrace();
+            throw new IOException("There was an issue with the file formatting. ");
         }
     }
 
