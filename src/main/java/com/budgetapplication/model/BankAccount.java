@@ -1,5 +1,5 @@
 package com.budgetapplication.model;
-import com.budgetapplication.controller.utils.Alerts;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

@@ -2,7 +2,6 @@ package com.budgetapplication.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.io.*;
 import java.time.LocalDate;
 
@@ -17,7 +16,6 @@ import java.time.LocalDate;
  */
 public class Transactions {
     private static ObservableList<Transaction> transaction;
-    private static int transactionSize = 0;
 
     /**
      * This method is used to read the transaction-info.csv file from the resource
@@ -46,7 +44,6 @@ public class Transactions {
                 e.printStackTrace();
                 throw new RuntimeException("The formatting for the wrapper classes were not done properly.");
             }
-            transactionSize = transaction.size();
         }
     }
 
