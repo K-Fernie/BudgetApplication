@@ -11,7 +11,7 @@ public class BankAccount {
 
     /**
      * findPercentageValue() - finds the type of bucket and returns its associated allocation percentage.
-     * @param BucketType type
+     * @param //
      * @return bucketPercent
      */
     public static double findPercentageValue(BucketType type){
@@ -24,7 +24,7 @@ public class BankAccount {
         return bucketPercent;
     }
 
-    public static double findLabelValue(BucketType type){
+    public static double findBucketValue(BucketType type){
         double bucketTotal = 0.00;
         for(Bucket bucket: BankAccount.getAllBuckets()){
             if(bucket.getBucketType().equals(type)){
@@ -34,7 +34,7 @@ public class BankAccount {
         return bucketTotal;
     }
 
-    public static void updateBuckets(Transaction transaction){
+    public static void addTransactionUpdateBuckets(Transaction transaction){
         double transactionAmt = transaction.getAmount();
         accountTotal = 0.00;
         for(Bucket bucket: allBuckets) {
@@ -52,6 +52,23 @@ public class BankAccount {
         }
     }
 
+    public static void removeTransactionUpdateBuckets(Transaction transaction){
+        double transactionAmt = transaction.getAmount();
+        accountTotal = 0.00;
+        for(Bucket bucket: allBuckets) {
+            if (transaction.getType().equals(Transaction.Category.INCOME)) {
+                double bucketTotal = bucket.getBucketTotal() - (transactionAmt * bucket.getPercentage());
+                bucket.setBucketTotal(bucketTotal);
+            }
+            else{
+                if(bucket.getBucketType().equals(transaction.getCategory())){
+                    double bucketTotal = bucket.getBucketTotal() + transactionAmt;
+                    bucket.setBucketTotal(bucketTotal);
+                }
+            }
+            accountTotal += bucket.getBucketTotal();
+        }
+    }
     public static void updateBucketAllocations(BucketType type, double percent) {
         for (Bucket bucket : allBuckets) {
             if (bucket.getBucketType().equals(type)) {

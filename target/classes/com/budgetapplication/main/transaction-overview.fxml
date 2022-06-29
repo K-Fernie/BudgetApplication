@@ -147,7 +147,10 @@
                   <Font name="Freestyle Script" size="36.0" />
                </font>
             </Label>
-            <Button layoutX="445.0" layoutY="719.0" mnemonicParsing="false" onAction="#onActionRemoveTransaction" prefHeight="25.0" prefWidth="147.0" text="Remove Transaction" />
+            <Button layoutX="478.0" layoutY="719.0" mnemonicParsing="false" onAction="#onActionRemoveTransaction" prefHeight="25.0" prefWidth="147.0" styleClass="button3" stylesheets="@../../../com.budgetapplication.css/fullpackstyling.css" text="Remove Transaction">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
          </children>
       </Pane>
    </children>
