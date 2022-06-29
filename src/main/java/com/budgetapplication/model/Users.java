@@ -6,10 +6,26 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
+/**
+ * Users is a utility class that's used to read and write into the
+ * associated csv files. It contains a static observable list that holds
+ * all the users that can log in. The list is used to check
+ * log in with the user interface.
+ *
+ * @author Daniel, Kaitlyn, Kenneth
+ * @version 1.0
+ */
 public class Users {
     private static List<User> users;
     private static User activeUser;
 
+    /**
+     * This method is used to read the user-info.csv file from the resource
+     * folder. It uses Buffer Reader with an Input file stream. The file data are
+     * separated by a comma delimiter. The input stream is stored into a
+     * static Observable list of users that will be verified during log in access.
+     * @throws IOException
+     */
     public static synchronized void readUsers() throws IOException {
         if (null == users) {
             users = new ArrayList<User>();
@@ -23,6 +39,14 @@ public class Users {
         }
     }
 
+    /**
+     * This method is used to find the current user information implemented during
+     * the log in screen. This will verify their username and password for access
+     * to the application.
+     * @param username - username set during login screen
+     * @param password - password set during login screen
+     * @return true/false - users stream will determine if the password and username exists in combo.
+     */
     public static synchronized boolean find(String username, String password) {
         boolean findUser = false;
         if (null == users) {
@@ -33,6 +57,12 @@ public class Users {
                 .anyMatch((u) -> u.getPassword().equals(password));
     }
 
+    /**
+     * This method will set the current user as the active user. The
+     * active user can be used as a reference to know which user
+     * is currently using the application.
+     * @param username - the username verified during login
+     */
     public static synchronized void setActiveUser(String username) {
         activeUser = users.stream()
                 .filter((u) -> u.getUserLogin().equals(username))
@@ -41,7 +71,4 @@ public class Users {
 
     }
 
-    public static synchronized User getActiveUser() {
-        return activeUser;
-    }
 }

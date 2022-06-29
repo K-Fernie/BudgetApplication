@@ -122,7 +122,7 @@ public class BankAccount {
 
     /**
      * This method gets the account ID of the current user.
-     * @return
+     * @return accountID - the account ID associated with a user.
      */
     public int getAccountId() {
         return accountId;
@@ -138,7 +138,7 @@ public class BankAccount {
 
     /**
      * This method gets the account total
-     * @return
+     * @return accountTotal - the account total for all buckets
      */
     public static double getAccountTotal() {
         return accountTotal;
@@ -156,7 +156,7 @@ public class BankAccount {
 
     /**
      * This method gets all the associated buckets in the observable list
-     * @return
+     * @return allBuckets - a list of all buckets
      */
     public static ObservableList<Bucket> getAllBuckets() {
         return allBuckets;
@@ -172,7 +172,7 @@ public class BankAccount {
 
     /**
      * This method gets all the transactions for the observable list.
-     * @return
+     * @return allTransactions - a list of all transactions for the active user
      */
     public static ObservableList<Transaction> getAllTransactions() {
         return allTransactions;
