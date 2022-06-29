@@ -141,7 +141,7 @@
                   <String fx:value="column-header-background" />
                </styleClass>
             </TableView>
-            <TextField fx:id="searchTxt" layoutX="433.0" layoutY="71.0" onInputMethodTextChanged="#onTypeSearch" prefHeight="22.0" prefWidth="192.0" promptText="search..." />
+            <TextField fx:id="searchTxt" layoutX="433.0" layoutY="71.0" prefHeight="22.0" prefWidth="192.0" promptText="search..." />
             <Label layoutX="225.0" layoutY="59.0" text="Search Transactions" textFill="WHITE">
                <font>
                   <Font name="Freestyle Script" size="36.0" />

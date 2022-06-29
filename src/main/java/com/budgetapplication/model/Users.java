@@ -71,4 +71,7 @@ public class Users {
 
     }
 
+    public static User getActiveUser() {
+        return activeUser;
+    }
 }
