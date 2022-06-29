@@ -10,9 +10,11 @@ it's suggested that the average american should have a mortgage or rent that is 
 the user would use an allocation screen to set this value so as they input their income values the buckets show how much they 
 have saved for their mortgage.
 
-## UML
+## Diagrams
 
-- []()
+- [Application UML](BudgetApplicationUML.png)
+- [Login Flow UML](Login_Flow.png)
+- [Version 1 Screen Outline](V1_Screen_Outline.png)
 
 ## MVP/Post MVP
 #### MVP
@@ -33,16 +35,16 @@ Enter Brief Description here
 
 ## Models and Controllers
 
-| Models(MVP)  | Description |
-|--------------|:-----------:|
-| User         |             |
-| Users        |             |
-| BankAccount  |             |
-| Bucket       |             |
-| Buckets      |             |
-| BucketType   |             |
-| Transaction  |             |
-| Transactions |             |
+| Models(MVP)  |                                      Description                                       |
+|--------------|:--------------------------------------------------------------------------------------:|
+| User         |           User model that has associated fields to saved user specific data            |
+| Users        |           Utility class that is used to read and write in user-info csv file           |
+| BankAccount  | Utility class that is used to store information on transactions and bucket allocations |
+| Bucket       |               Budget allocation categories (i.e. Housing, Personal, etc)               |
+| Buckets      |         Utility class that is used to read and write into bucket-info csv file         |
+| BucketType   |     Enum for the different allocation categories also providing an observable list     |
+| Transaction  |     Storage class that is used to hold information on user income and expenditures     |
+| Transactions |       Utility class that is used to read and write in transaction-info csv file        |
 
 
 | Controllers          |                     Description                     |
@@ -58,10 +60,9 @@ Enter Brief Description here
 | Component        | Priority | Estimated Time | Time Invested |
 |------------------|:--------:|:--------------:|:-------------:|
 | Modeling         |    H     |      24H       |      29H      |
-| View Controllers |    H     |                |               |
+| View Controllers |    H     |      15H       |      18H      |
 | UI Development   |    H     |      15H       |      20H      |
-| Total(MVP)       |    H     |                |               |
-| Total(PostMVP)   |    L     |                |               |
+| Total            |    H     |      54H       |      67H      |
 
 ## Technology Used
 
