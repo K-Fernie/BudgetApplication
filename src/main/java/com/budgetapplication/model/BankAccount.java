@@ -49,7 +49,7 @@ public class BankAccount {
 
     /**
      * This method determines if the new transaction is income or an expense, and updates the corresponding bucket type
-     * with a new total value. the new bucket total value is then updated into the account total value.
+     * with a new total value. The new bucket total value is then updated into the account total value.
      * @param transaction - income or expense transaction that is used to update the accountTotal value
      */
     public static void addTransactionUpdateBuckets(Transaction transaction){
@@ -70,6 +70,11 @@ public class BankAccount {
         }
     }
 
+    /**
+     * This method determines if the removed transaction is an income or expense, and subtracts it from the corresponding bucket
+     * with a new total value. The new bucket value is then updated into the account total value.
+     * @param transaction - selected transaction from the table that is used to update the account total value.
+     */
     public static void removeTransactionUpdateBuckets(Transaction transaction){
         double transactionAmt = transaction.getAmount();
         accountTotal = 0.00;
