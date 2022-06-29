@@ -20,6 +20,14 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+/**
+ * Budget overview is a controller class to be used in conjunction with transaction-overview.fxml.
+ * It contains event methods used when a user clicks buttons on the screen. Extends initializable and
+ * has data pulled from the bucket-info.csv file to display.
+ *
+ * @author Daniel, Kaitlyn, Kenneth
+ * @version 1.0
+ */
 public class TransactionOverview implements Initializable {
 
     private static ObservableList<Transaction> allTransactions = BankAccount.getAllTransactions();
@@ -45,21 +53,35 @@ public class TransactionOverview implements Initializable {
     @FXML
     private TableView<Transaction> transactionTableView;
 
-    //TODO update this column with the correct type once it's created i.e. transaction type enum
     @FXML
     private TableColumn<Transaction, String> typeCol;
 
+    /**
+     * When this button is clicked, the event moves the scene from transaction-overview.fxml to budget-overview.fxml
+     * @param event - Listens for a button click event
+     */
     @FXML
     void onClickBudgetOverview(ActionEvent event) {
         SceneHandling.sceneChanger(event, "budget-overview.fxml", "Budget Overview");
 
     }
 
+    /**
+     * When this button is clicked, the event moves the scene from transaction-overview.fxml to enter-transaction.fxml
+     * @param event - Listens for a button click event
+     */
     @FXML
     void onClickEnterTransaction(ActionEvent event) {
         SceneHandling.sceneChanger(event, "enter-transaction.fxml", "Enter Transaction");
     }
 
+    /**
+     * When this button is clicked the Transactions and Buckets both utilize methods for the
+     * Bucket and Transactions stored in the client.
+     * The event moves the scene from budget-overview.fxml to login-screen.fxml.
+     * @param event - Listens for a button click event.
+     * @throws IOException - If data is not written correctly an IOException is thrown
+     */
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
         Transactions.writeTransactions();
@@ -67,23 +89,32 @@ public class TransactionOverview implements Initializable {
         SceneHandling.sceneChanger(event, "login-screen.fxml", "Login Screen");
     }
 
+    /**
+     * When this button is clicked, the event moves the scene from transaction-overview.fxml to set-budget-buckets.fxml
+     * @param event - Listens for a button click event
+     */
     @FXML
     void onClickSetAllocations(ActionEvent event) {
         SceneHandling.sceneChanger(event, "set-budget-buckets.fxml", "Set Allocations");
 
     }
 
+    /**
+     * When this button is clicked, the event moves the scene from transaction-overview.fxml to transaction-overview.fxml
+     * @param event - Listens for a button click event
+     */
     @FXML
     void onClickTransactionPage(ActionEvent event) {
         SceneHandling.sceneChanger(event, "transaction-overview.fxml", "Transaction Overview");
 
     }
 
-    @FXML
-    void onTypeSearch(InputMethodEvent event) {
-
-    }
-
+    /**
+     * When this button is clicked it obtains the transaction object that has been selected from the table veiw and
+     * goes through the process of removing it from the BankAccount array, updating bucket and account total data, and
+     * re-setting the table view with the new array values.
+     * @param event
+     */
     @FXML
     void onActionRemoveTransaction(ActionEvent event) {
         Transaction transaction = transactionTableView.getSelectionModel().getSelectedItem();
@@ -93,6 +124,11 @@ public class TransactionOverview implements Initializable {
         accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
     }
 
+    /**
+     * The initialize method is inherited from the Initializable class. This method sets the initial table view information
+     * with the ObservableArray of transactions obtained from the BankAccount. It also contains search text functionality
+     * that resets the table view based on user input in the searchTxt field.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {

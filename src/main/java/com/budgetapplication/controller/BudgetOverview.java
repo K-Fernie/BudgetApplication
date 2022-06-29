@@ -69,7 +69,7 @@ public class BudgetOverview implements Initializable {
      * Bucket and Transactions stored in the client.
      * The event moves the scene from budget-overview.fxml to login-screen.fxml.
      * @param event - Listens for a button click event.
-     * @throws IOException -
+     * @throws IOException - If data is not written correctly an IOException is thrown
      */
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
