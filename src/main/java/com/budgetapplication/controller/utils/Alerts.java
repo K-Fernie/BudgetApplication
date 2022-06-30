@@ -13,13 +13,11 @@ import javafx.scene.text.Text;
  */
 public class Alerts {
 
-    static Alert alertInfo = new Alert(Alert.AlertType.INFORMATION);
-    static Text text = new Text();
-
     /**
      * This method defines an alert that is displayed when a user enters an incorrect username and password.
      */
     public static void loginError(){
+        Alert alertInfo = new Alert(Alert.AlertType.INFORMATION);
         alertInfo.setTitle("Password Error");
         alertInfo.setHeaderText("Incorrect Username or Password");
         alertInfo.setContentText("Enter valid Username and Password");
@@ -30,12 +28,11 @@ public class Alerts {
      * This method displays an informational text in regard to the "Allocation Info" label and why it's there.
      */
     public static void allocationInfo(){
+        Alert alertInfo = new Alert(Alert.AlertType.INFORMATION);
         alertInfo.setTitle("Allocation Running Total");
         alertInfo.setHeaderText("Allocation Running Total");
-        text = new Text("The running total shows you how much percent of your income has been allocated. " +
-                "The allocation sum must be equal to 100% before you can proceed from this page.");
-        text.setWrappingWidth(350);
-        alertInfo.getDialogPane().setContent(text);
+        alertInfo.setContentText("The sum of all allocation settings must equal 100% before you can proceed from this page. " +
+                "Please review all settings and click \"Save Bucket Updates\" if you are satisfied");
         alertInfo.showAndWait();
     }
 
@@ -43,6 +40,7 @@ public class Alerts {
      * This method displays an alert notifying the user that fields are either empty or contain invalid data.
      */
     public static void missingInputData(){
+        Alert alertInfo = new Alert(Alert.AlertType.INFORMATION);
         alertInfo.setTitle("Missing input data");
         alertInfo.setHeaderText("Missing Input");
         alertInfo.setContentText("Please ensure all fields are completed with correct values before saving");
@@ -54,6 +52,7 @@ public class Alerts {
      * and saved prior to moving from the page.
      */
     public static void allocationInfoIncorrect(){
+        Alert alertInfo = new Alert(Alert.AlertType.INFORMATION);
         alertInfo.setTitle("Allocation Info Needs to Be Set");
         alertInfo.setHeaderText("Allocation Info Needs to Be Set");
         alertInfo.setContentText("The sum of all allocation settings must equal 100% before you can proceed from this page. " +
@@ -65,6 +64,7 @@ public class Alerts {
      * This method displays an alert notifying the user that the save function completed correctly.
      */
     public static void allocationsSet(){
+        Alert alertInfo = new Alert(Alert.AlertType.INFORMATION);
         alertInfo.setTitle("Save Successful");
         alertInfo.setHeaderText("Allocation Updates Saved");
         alertInfo.setContentText("Your allocations have been successfully updated");
