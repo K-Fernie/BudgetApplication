@@ -45,6 +45,7 @@ public class Transaction {
      * @param amount - the dollar amount of the transaction
      * @param bankId - the bank ID of the user associated with this transaction
      */
+
     public Transaction(LocalDate date, String description, BucketType bucketType, Category category, double amount, int bankId) {
         setDate(date);
         setDescription(description);

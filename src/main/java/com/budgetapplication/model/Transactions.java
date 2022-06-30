@@ -33,9 +33,11 @@ public class Transactions {
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
                     String[] tokens = line.split(",");
-                    transaction.add(new Transaction(LocalDate.parse(tokens[0]), tokens[1],
-                            Enum.valueOf(BucketType.class, tokens[2].toUpperCase()), Enum.valueOf(Transaction.Category.class, tokens[3].toUpperCase()),
-                            Double.parseDouble(tokens[4]), Integer.parseInt(tokens[5])));
+                    if (!line.trim().equals("")) {
+                        transaction.add(new Transaction(LocalDate.parse(tokens[0]), tokens[1],
+                                Enum.valueOf(BucketType.class, tokens[2].toUpperCase()), Enum.valueOf(Transaction.Category.class, tokens[3].toUpperCase()),
+                                Double.parseDouble(tokens[4]), Integer.parseInt(tokens[5])));
+                    }
                 }
                 bufferedReader.close();
             } catch (IOException e) {

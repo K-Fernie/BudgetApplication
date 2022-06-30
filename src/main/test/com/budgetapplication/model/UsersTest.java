@@ -1,11 +1,9 @@
 package com.budgetapplication.model;
 
 import org.testng.annotations.Test;
-
 import java.io.IOException;
 import java.util.NoSuchElementException;
-
-import static org.testng.AssertJUnit.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class UsersTest {
