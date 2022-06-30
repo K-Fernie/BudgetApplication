@@ -64,6 +64,8 @@ public class Transactions {
             for (int i = 0; i < transaction.size(); i++) {
                 output.append(transaction.get(i).toString());
             }
+            transaction = FXCollections.observableArrayList();
+            BankAccount.setAllTransactions(transaction);
             output.close();
         } catch (IOException e) {
         }
