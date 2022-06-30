@@ -134,7 +134,6 @@ public class TransactionOverview implements Initializable {
         accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
 
         try {
-            allTransactions = BankAccount.getAllTransactions();
             transactionTableView.setItems(allTransactions);
             dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
             descriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
