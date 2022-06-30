@@ -48,8 +48,8 @@ public class Transaction {
     public Transaction(LocalDate date, String description, BucketType bucketType, Category category, double amount, int bankId) {
         setDate(date);
         setDescription(description);
-        setCategory(bucketType);
-        setType(category);
+        setBucketType(bucketType);
+        setCategory(category);
         setAmount(amount);
         setBankId(bankId);
     }
@@ -74,7 +74,7 @@ public class Transaction {
         return category;
     }
 
-    public void setCategory(Enum<BucketType> category) {
+    public void setBucketType(Enum<BucketType> category) {
         this.category = category;
     }
 
@@ -82,7 +82,7 @@ public class Transaction {
         return type;
     }
 
-    public void setType(Enum<Category> type) {
+    public void setCategory(Enum<Category> type) {
         this.type = type;
     }
 

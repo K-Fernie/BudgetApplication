@@ -93,10 +93,10 @@ public class SetBudgetBuckets implements Initializable {
      * txtFieldSum is used to calculate the sum of all the double values entered into the fields.
      * @return - returns the sum value
      */
-    private double txtFieldSum(){
-        double sum =  Double.parseDouble(housingTxt.getText()) + Double.parseDouble(transportationTxt.getText()) + Double.parseDouble(groceriesTxt.getText())
+    private int txtFieldSum(){
+        int sum =  (int)(Double.parseDouble(housingTxt.getText()) + Double.parseDouble(transportationTxt.getText()) + Double.parseDouble(groceriesTxt.getText())
                 + Double.parseDouble(utilitiesTxt.getText()) + Double.parseDouble(subscriptionsTxt.getText()) + Double.parseDouble(investmentsTxt.getText()) +
-                Double.parseDouble(medicalTxt.getText()) + Double.parseDouble(internetTxt.getText()) + Double.parseDouble(personalTxt.getText());
+                Double.parseDouble(medicalTxt.getText()) + Double.parseDouble(internetTxt.getText()) + Double.parseDouble(personalTxt.getText()));
         return sum;
 
     }
@@ -188,7 +188,7 @@ public class SetBudgetBuckets implements Initializable {
      */
     @FXML
     void onClickSaveBucketUpdates(ActionEvent event) {
-            if (txtFieldSum() == 100.0) {
+            if (txtFieldSum() == 100) {
                 BankAccount.updateBucketAllocations(BucketType.HOUSING, Double.parseDouble(housingTxt.getText()) / 100.0);
                 BankAccount.updateBucketAllocations(BucketType.TRANSPORTATION, Double.parseDouble(transportationTxt.getText()) / 100.0);
                 BankAccount.updateBucketAllocations(BucketType.GROCERIES, Double.parseDouble(groceriesTxt.getText()) / 100.0);
@@ -215,34 +215,34 @@ public class SetBudgetBuckets implements Initializable {
             percentageTotal += bucket.getPercentage();
         }
 
-        allocationBtnLbl.setText(String.format(btnString, percentageTotal * 100));
+        allocationBtnLbl.setText(String.format(btnString, (int)(percentageTotal * 100)));
         accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
 
-        housingTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.HOUSING)));
+        housingTxt.setText(String.valueOf((int)(100.0 * findPercentageValue(BucketType.HOUSING))));
         housingTxt.textProperty().addListener(new TextChangeListener(housingTxt));
 
-        transportationTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.TRANSPORTATION)));
+        transportationTxt.setText(String.valueOf((int)(100.0 * findPercentageValue(BucketType.TRANSPORTATION))));
         transportationTxt.textProperty().addListener(new TextChangeListener(transportationTxt));
 
-        groceriesTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.GROCERIES)));
+        groceriesTxt.setText(String.valueOf((int)(100.0 * findPercentageValue(BucketType.GROCERIES))));
         groceriesTxt.textProperty().addListener(new TextChangeListener(groceriesTxt));
 
-        utilitiesTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.UTILITIES)));
+        utilitiesTxt.setText(String.valueOf((int)(100.0 * findPercentageValue(BucketType.UTILITIES))));
         utilitiesTxt.textProperty().addListener(new TextChangeListener(utilitiesTxt));
 
-        subscriptionsTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.SUBSCRIPTIONS)));
+        subscriptionsTxt.setText(String.valueOf((int)(100.0 * findPercentageValue(BucketType.SUBSCRIPTIONS))));
         subscriptionsTxt.textProperty().addListener(new TextChangeListener(subscriptionsTxt));
 
-        investmentsTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.INVESTMENTS)));
+        investmentsTxt.setText(String.valueOf((int)(100.0 * findPercentageValue(BucketType.INVESTMENTS))));
         investmentsTxt.textProperty().addListener(new TextChangeListener(investmentsTxt));
 
-        medicalTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.MEDICAL)));
+        medicalTxt.setText(String.valueOf((int)(100.0 * findPercentageValue(BucketType.MEDICAL))));
         medicalTxt.textProperty().addListener(new TextChangeListener(medicalTxt));
 
-        internetTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.INTERNET)));
+        internetTxt.setText(String.valueOf((int)(100.0 * findPercentageValue(BucketType.INTERNET))));
         internetTxt.textProperty().addListener(new TextChangeListener(internetTxt));
 
-        personalTxt.setText(String.format("%.2s", 100.0 * findPercentageValue(BucketType.PERSONAL)));
+        personalTxt.setText(String.valueOf((int)(100.0 * findPercentageValue(BucketType.PERSONAL))));
         personalTxt.textProperty().addListener(new TextChangeListener(personalTxt));
 
     }
