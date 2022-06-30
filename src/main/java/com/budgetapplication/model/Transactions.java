@@ -15,7 +15,7 @@ import java.time.LocalDate;
  * @version 1.0
  */
 public class Transactions {
-    private static ObservableList<Transaction> transaction;
+    private static ObservableList<Transaction> transaction = FXCollections.observableArrayList();
 
     /**
      * This method is used to read the transaction-info.csv file from the resource
@@ -26,7 +26,6 @@ public class Transactions {
      */
     public static synchronized void readTransactions() throws IOException {
         if (null == transaction) {
-            transaction = FXCollections.observableArrayList();
             String file = "src/main/resources/com.budgetapplication.file/transaction-info.csv";
             try {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
