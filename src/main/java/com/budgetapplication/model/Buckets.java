@@ -36,6 +36,7 @@ public class Buckets {
                     String[] tokens = line.split(",");
                     allocateBucket.add(new Bucket(Enum.valueOf(BucketType.class, tokens[0]), Double.parseDouble(tokens[1]), Double.parseDouble(tokens[2])));
                 }
+                bufferedReader.close();
             } catch (IOException e) {
                 e.printStackTrace();
                 throw new IOException("There was an issue reading the file.");

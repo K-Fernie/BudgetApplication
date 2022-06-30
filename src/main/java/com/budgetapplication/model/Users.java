@@ -28,11 +28,20 @@ public class Users {
         if (null == users) {
             users = new ArrayList<User>();
             String file = "src/main/resources/com.budgetapplication.file/user-info.csv";
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] tokens = line.split(",");
-                users.add(new User(Integer.parseInt(tokens[0]), tokens[1], tokens[2]));
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    String[] tokens = line.split(",");
+                    users.add(new User(Integer.parseInt(tokens[0]), tokens[1], tokens[2]));
+                }
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new IOException("There was an issue reading the file.");
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                throw new NumberFormatException("The formatting for the wrapper classes were not done properly.");
             }
         }
     }
