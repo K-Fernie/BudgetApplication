@@ -131,13 +131,6 @@ public class TransactionOverview implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            Transactions.readTransactions();
-            BankAccount.setAllTransactions(Transactions.getTransactions());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         accountTotalLbl.setText(String.valueOf(BankAccount.getAccountTotal()));
 
         try {

@@ -2,10 +2,7 @@ package com.budgetapplication.controller;
 
 import com.budgetapplication.controller.utils.Alerts;
 import com.budgetapplication.controller.utils.SceneHandling;
-import com.budgetapplication.model.BankAccount;
-import com.budgetapplication.model.Buckets;
-import com.budgetapplication.model.User;
-import com.budgetapplication.model.Users;
+import com.budgetapplication.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -50,6 +47,8 @@ public class LoginScreen {
             }
             BankAccount.setAllBuckets(Buckets.getBuckets());
             BankAccount.setAccountTotal();
+            Transactions.readTransactions();
+            BankAccount.setAllTransactions(Transactions.getTransactions());
             if (BankAccount.isAllocated()){
                 SceneHandling.sceneChanger(event, "budget-overview.fxml", "Budget Overview");
             }
