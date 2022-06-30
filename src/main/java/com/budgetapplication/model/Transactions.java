@@ -37,12 +37,13 @@ public class Transactions {
                             Enum.valueOf(BucketType.class, tokens[2].toUpperCase()), Enum.valueOf(Transaction.Category.class, tokens[3].toUpperCase()),
                             Double.parseDouble(tokens[4]), Integer.parseInt(tokens[5])));
                 }
+                bufferedReader.close();
             } catch (IOException e) {
                 e.printStackTrace();
-                throw new RuntimeException("There was an issue reading the file.");
+                throw new IOException("There was an issue reading the file.");
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                throw new RuntimeException("The formatting for the wrapper classes were not done properly.");
+                throw new NumberFormatException("The formatting for the wrapper classes were not done properly.");
             }
         }
     }
