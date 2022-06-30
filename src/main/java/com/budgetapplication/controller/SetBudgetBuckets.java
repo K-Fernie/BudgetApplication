@@ -198,6 +198,7 @@ public class SetBudgetBuckets implements Initializable {
                 BankAccount.updateBucketAllocations(BucketType.MEDICAL, Double.parseDouble(medicalTxt.getText()) / 100.0);
                 BankAccount.updateBucketAllocations(BucketType.INTERNET, Double.parseDouble(internetTxt.getText()) / 100.0);
                 BankAccount.updateBucketAllocations(BucketType.PERSONAL, Double.parseDouble(personalTxt.getText()) / 100.0);
+                Alerts.allocationsSet();
             } else {
                 Alerts.allocationInfoIncorrect();
             }

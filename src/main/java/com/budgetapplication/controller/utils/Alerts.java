@@ -60,4 +60,12 @@ public class Alerts {
                 "Please review all settings and click \"Save Bucket Updates\" if you are satisfied");
         alertInfo.showAndWait();
     }
+
+    public static void allocationsSet(){
+        alertInfo.setTitle("Save Successful");
+        alertInfo.setHeaderText("Allocation Updates Saved");
+        alertInfo.setContentText("Your allocations have been successfully updated");
+        alertInfo.showAndWait();
+
+    }
 }
