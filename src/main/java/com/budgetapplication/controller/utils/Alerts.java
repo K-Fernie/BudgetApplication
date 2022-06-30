@@ -61,11 +61,13 @@ public class Alerts {
         alertInfo.showAndWait();
     }
 
+    /**
+     * This method displays an alert notifying the user that the save function completed correctly.
+     */
     public static void allocationsSet(){
         alertInfo.setTitle("Save Successful");
         alertInfo.setHeaderText("Allocation Updates Saved");
         alertInfo.setContentText("Your allocations have been successfully updated");
         alertInfo.showAndWait();
-
     }
 }
