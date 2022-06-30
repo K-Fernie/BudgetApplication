@@ -26,13 +26,10 @@ public class User {
         this.bankId  = bankId;
     }
 
-    //TODO query the database for the user, if the user exists do nothing
-
     public String getUserLogin() {
         return userLogin;
     }
 
-    //TODO query the database for the user, if the user exists do nothing
     public void setUserLogin(String userLogin) {
         this.userLogin = userLogin;
     }
@@ -41,7 +38,6 @@ public class User {
         return password;
     }
 
-    //TODO query the database for the user, if the user exists do nothing
     public void setPassword(String password) {
         this.password = password;
     }

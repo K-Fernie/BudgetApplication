@@ -153,7 +153,6 @@ public class TransactionOverview implements Initializable {
             e.printStackTrace();
         }
 
-        //TODO find a way to compartmentalize the sort function
         FilteredList<Transaction> filteredTransactions = new FilteredList<>(allTransactions, p -> true);
 
         searchTxt.textProperty().addListener((observable, oldValue, newValue) ->

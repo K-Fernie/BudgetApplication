@@ -76,6 +76,12 @@ public class SetBudgetBuckets implements Initializable {
             this.textField = myTextField;
         }
 
+        /**
+         * This method is used to determine if there has been an update to the bucket value.
+         * @param observable
+         * @param oldValue
+         * @param newValue
+         */
         @Override
         public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
             if(!newValue.matches("\\d*")){
