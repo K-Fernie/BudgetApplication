@@ -42,13 +42,13 @@ public class LoginScreen {
             Users.setActiveUser(userLogin.getUserLogin());
             try {
                 Buckets.readBuckets();
+                Transactions.readTransactions();
+                BankAccount.setAllTransactions(Transactions.getTransactions());
+                BankAccount.setAllBuckets(Buckets.getBuckets());
+                BankAccount.setAccountTotal();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            BankAccount.setAllBuckets(Buckets.getBuckets());
-            BankAccount.setAccountTotal();
-            Transactions.readTransactions();
-            BankAccount.setAllTransactions(Transactions.getTransactions());
             if (BankAccount.isAllocated()){
                 SceneHandling.sceneChanger(event, "budget-overview.fxml", "Budget Overview");
             }

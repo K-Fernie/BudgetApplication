@@ -2,6 +2,7 @@ package com.budgetapplication.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 import java.io.*;
 import java.time.LocalDate;
 
@@ -22,30 +23,29 @@ public class Transactions {
      * folder. It uses Buffer Reader with an Input file stream. The file data are
      * separated by a comma delimiter. The input stream is stored into a
      * static Observable list of transaction that will be used in Bank Account.
+     *
      * @throws IOException
      */
     public static synchronized void readTransactions() throws IOException {
-        if (null == transaction) {
-            String file = "src/main/resources/com.budgetapplication.file/transaction-info.csv";
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
-                String line;
-                while ((line = bufferedReader.readLine()) != null) {
-                    String[] tokens = line.split(",");
-                    if (!line.trim().equals("")) {
-                        transaction.add(new Transaction(LocalDate.parse(tokens[0]), tokens[1],
-                                Enum.valueOf(BucketType.class, tokens[2].toUpperCase()), Enum.valueOf(Transaction.Category.class, tokens[3].toUpperCase()),
-                                Double.parseDouble(tokens[4]), Integer.parseInt(tokens[5])));
-                    }
+        String file = "src/main/resources/com.budgetapplication.file/transaction-info.csv";
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] tokens = line.split(",");
+                if (!(line.trim().equals(""))) {
+                    transaction.add(new Transaction(LocalDate.parse(tokens[0]), tokens[1],
+                            Enum.valueOf(BucketType.class, tokens[2].toUpperCase()), Enum.valueOf(Transaction.Category.class, tokens[3].toUpperCase()),
+                            Double.parseDouble(tokens[4]), Integer.parseInt(tokens[5])));
                 }
-                bufferedReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-                throw new IOException("There was an issue reading the file.");
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                throw new NumberFormatException("The formatting for the wrapper classes were not done properly.");
             }
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new IOException("There was an issue reading the file.");
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            throw new NumberFormatException("The formatting for the wrapper classes were not done properly.");
         }
     }
 
@@ -53,6 +53,7 @@ public class Transactions {
      * This method is used to write the changes in transactions that came
      * from the user interface. Users can delete transactions and add new
      * transactions. On logout, the transactions will be updated.
+     *
      * @throws IOException
      */
     public static synchronized void writeTransactions() throws IOException {
@@ -72,6 +73,7 @@ public class Transactions {
     /**
      * This method is used to pass the static observable list to a BankAccount class
      * reference.
+     *
      * @return transaction - a list of transactions
      */
     public static synchronized ObservableList<Transaction> getTransactions() {
